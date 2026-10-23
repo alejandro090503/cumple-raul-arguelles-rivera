@@ -441,3 +441,26 @@ html.io-unavailable main [style*="translate"] {
 .h50-date { gap: 12px; }
 .h50-date span { font-size: clamp(14px, 4vw, 20px); letter-spacing: .1em; }
 .h50-date strong { font-size: clamp(2.6rem, 13vw, 4rem); }
+
+/* ══ Estilo save the date: mármol + marcos dorados + cintas ══
+   La imagen ocupa solo la zona opaca (entre los dos fundidos) y el
+   fundido se rellena con el tono de la orilla: así nunca se ve un corte. */
+@keyframes fxBreathe { 0% { transform: scale(1); } 50% { transform: scale(1.018) translateY(-.3%); } 100% { transform: scale(1.01) translateY(.3%); } }
+.ink-hero::before, .ink-oval::before, .ink-soft::before, .ink-dark::before { inset: 0; filter: none; opacity: 1; animation: fxBreathe 14s ease-in-out infinite alternate; }
+.ink-hero::before { background: url(/portada-marco.webp) center top / 100% calc(100% - var(--fade) * .6) no-repeat, #0B1A3D; }
+.ink-oval::before { background: url(/marco-claro-a.webp) center / 100% calc(100% - var(--fade) * 1.2) no-repeat, #F5F3EF; }
+.ink-soft::before { background: url(/marco-claro-a.webp) center / 100% calc(100% - var(--fade) * 1.2) no-repeat, #F5F3EF; }
+.ink-soft-b::before { background: url(/marco-claro-b.webp) center / 100% calc(100% - var(--fade) * 1.2) no-repeat, #F5F3EF; animation-direction: alternate-reverse; }
+.ink-dark::before { background: url(/fondo-cintas.webp) center / 100% calc(100% - var(--fade) * 1.2) no-repeat, #07122A; }
+.ink-dark-end::before { background-size: 100% calc(100% - var(--fade) * .6); background-position: center bottom; }
+/* Portada: el texto vive en el mármol central */
+.ink-hero { padding-left: 64px !important; padding-right: 64px !important; }
+.ink-hero .h50-name { font-size: clamp(1.2rem, 5.8vw, 2.4rem); }
+.ink-hero .h50-num { font-size: clamp(7rem, 36vw, 12rem); }
+.ink-hero .h50-rule i { width: 64px; }
+.ink-hero .h50-date span { font-size: clamp(13px, 3.6vw, 19px); }
+/* Divisor dorado */
+.div-oro { display: flex; justify-content: center; width: 100%; }
+.div-oro img { width: min(78vw, 340px); height: auto; filter: drop-shadow(0 2px 4px rgba(11,26,61,.18)); animation: divShine 5s ease-in-out infinite; }
+@keyframes divShine { 0%,100% { filter: drop-shadow(0 2px 4px rgba(11,26,61,.18)) brightness(1); } 50% { filter: drop-shadow(0 0 10px rgba(212,175,55,.55)) brightness(1.12); } }
+@media (prefers-reduced-motion: reduce) { .div-oro img { animation: none; } }

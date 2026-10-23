@@ -241,17 +241,12 @@ function Divider() {
       viewport={{ once: true, amount: 0.6 }}
     >
       <motion.div
-        style={{ height: 1, width: 56, backgroundColor: C.gold, opacity: 0.3, transformOrigin: "right" }}
-        variants={drawX}
-      />
-      <motion.svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true" className="mx-3" variants={popStar}>
-        <circle cx="12" cy="12" r="1.2" fill={C.gold} opacity="0.7" />
-        <circle cx="12" cy="12" r="4.5" stroke={C.gold} strokeWidth="0.5" opacity="0.4" />
-      </motion.svg>
-      <motion.div
-        style={{ height: 1, width: 56, backgroundColor: C.gold, opacity: 0.3, transformOrigin: "left" }}
-        variants={drawX}
-      />
+        variants={{ hidden: { opacity: 0, scaleX: 0.3 }, show: { opacity: 1, scaleX: 1, transition: { duration: 1, ease: EASE } } }}
+        className="div-oro"
+      >
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src="/divisor-oro.png" alt="" aria-hidden="true" />
+      </motion.div>
     </motion.div>
   );
 }
