@@ -589,3 +589,8 @@ html.io-unavailable main [style*="translate"] {
 .nm-with { font-family: var(--font-heading); font-style: italic; font-weight: 600; font-size: 22px; color: #E9C766; margin-top: 10px; }
 .nm-sign { font-family: var(--font-heading); font-style: italic; font-weight: 700; font-size: clamp(30px, 9vw, 40px); color: #E9C766; line-height: 1.2; }
 .nm-quote { font-family: var(--font-heading); font-style: italic; font-weight: 600; font-size: 18px; line-height: 1.6; color: #F1DC8C; margin-top: 10px; }
+.nm { padding-left: 56px !important; padding-right: 56px !important; }
+.nm-item > div, .nm-it, .nm-ix { text-align: left; }
+.nm-ico { flex-basis: 44px; height: 44px; }
+.nm-ico svg { width: 24px; height: 24px; }
+.nm-p, .nm-ix { font-size: 17px; }
