@@ -603,6 +603,9 @@ function Hero() {
           <span className="text-shimmer">RAÚL</span>
         </MaskLine>
 
+        <MaskLine as="h1" style={{ ...nameStyle, fontSize: "clamp(1.35rem, 6.4vw, 4rem)", letterSpacing: "0.06em", whiteSpace: "nowrap", marginTop: "calc(-1 * clamp(12px, 3vw, 24px))" }} duration={1.05}>
+          <span className="text-shimmer">ARGÜELLES RIVERA</span>
+        </MaskLine>
         {/* 60 */}
         <motion.p
           aria-hidden="true"
@@ -629,9 +632,6 @@ function Hero() {
         </motion.p>
 
         {/* ZAMUDIO — con shimmer */}
-        <MaskLine as="h1" style={{ ...nameStyle, fontSize: "clamp(1.35rem, 6.4vw, 4rem)", letterSpacing: "0.06em", whiteSpace: "nowrap" }} duration={1.05}>
-          <span className="text-shimmer">ARGÜELLES RIVERA</span>
-        </MaskLine>
 
         <Ornament width={120} />
 
