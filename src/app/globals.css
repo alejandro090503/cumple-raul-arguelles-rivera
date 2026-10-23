@@ -556,3 +556,7 @@ html.io-unavailable main [style*="translate"] {
 .ink-oval::before, .ink-soft::before, .ink-soft-b::before { animation: bgSway 14s ease-in-out infinite alternate; }
 .ink-soft-b::before { animation-direction: alternate-reverse; }
 @media (prefers-reduced-motion: reduce) { .drape, .rib, .h-dust span, .ink-hero::before, .ink-oval::before, .ink-soft::before { animation: none; } .h-dust { display: none; } }
+
+/* Cinta grande en el borde derecho del RSVP */
+.rib-edge-r { --rw: min(30vw, 130px); background-image: url(/cinta-full.webp); height: calc(var(--rw) * 4.76); right: calc(var(--rw) * -.34); top: calc(var(--fade, 150px) * .5); scale: -1 1; animation-duration: 8s; }
+.rib-edge-r2 { top: calc(var(--fade, 150px) * .5 + var(--rw) * 4.5); scale: 1 1; right: calc(var(--rw) * -.46); animation-delay: -3s; }
