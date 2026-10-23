@@ -979,6 +979,8 @@ function Itinerario() {
 function Vestimenta() {
   return (
     <Section id="vestimenta" bg="transparent" className="fx ink-dark halo-dark lj-dc" style={{ paddingTop: 210, paddingBottom: 230 }}>
+      <span className="drape drape-tl" aria-hidden="true" />
+      <span className="drape drape-br" aria-hidden="true" />
       <InView style={{ maxWidth: 360, margin: "0 auto" }} amount={0.25}>
         <motion.span variants={riseSmall} className="lj-lbl">Etiqueta</motion.span>
         <MaskLine as="p" style={{ margin: "8px 0 30px" }} duration={1}>
@@ -1021,6 +1023,8 @@ function Vestimenta() {
 function AvisoSorpresa() {
   return (
     <Section bg="transparent" className="fx ink-dark halo-dark" style={{ position: "relative", overflow: "hidden", paddingTop: 230, paddingBottom: 260 }}>
+      <span className="drape drape-tl" aria-hidden="true" />
+      <span className="drape drape-br" aria-hidden="true" />
       {/* Partículas doradas flotantes */}
       {[...Array(12)].map((_, i) => (
         <motion.div
@@ -1281,6 +1285,7 @@ function Footer() {
       whileInView="show"
       viewport={{ once: true, amount: 0.4 }}
     >
+      <span className="drape drape-tl" aria-hidden="true" />
       <motion.p
         aria-hidden="true"
         variants={{ hidden: { opacity: 0, scale: 0.6 }, show: { opacity: 1, scale: 1, transition: { duration: 0.9, ease: EASE } } }}

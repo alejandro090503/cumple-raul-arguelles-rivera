@@ -465,3 +465,59 @@ html.io-unavailable main [style*="translate"] {
 .div-oro img { width: min(78vw, 340px); height: auto; filter: drop-shadow(0 2px 4px rgba(11,26,61,.18)); animation: divShine 5s ease-in-out infinite; }
 @keyframes divShine { 0%,100% { filter: drop-shadow(0 2px 4px rgba(11,26,61,.18)) brightness(1); } 50% { filter: drop-shadow(0 0 10px rgba(212,175,55,.55)) brightness(1.12); } }
 @media (prefers-reduced-motion: reduce) { .div-oro img { animation: none; } }
+
+/* ══ v3: fondos sin estirar ═══════════════════════════════════
+   Claros: tira con orillas azules/oro repetida hacia abajo (espejada = sin costura).
+   Oscuros: terciopelo en mosaico + esquinas doradas + marco dibujado en CSS. */
+.ink-hero::before { background: url(/portada-marco.webp) center top / 112% calc(100% - var(--fade) * .6) no-repeat, #0B1A3D; }
+@media (min-width: 700px) { .ink-hero::before { background-size: 100% calc(100% - var(--fade) * .6); } }
+.ink-oval::before, .ink-soft::before, .ink-soft-b::before { background: url(/marco-tira.webp) center top / 100% auto repeat-y, #F5F3EF; }
+.ink-soft-b::before { background-position: center 40%; }
+.ink-oval, .ink-soft, .ink-soft-b { padding-left: 58px !important; padding-right: 58px !important; }
+
+.ink-dark { --fade: 190px; --cn: 110px; --side: 14px; }
+.ink-dark::before {
+  background:
+    url(/esquina-tl.png) left var(--side) top var(--fade) / var(--cn) no-repeat,
+    url(/esquina-tr.png) right var(--side) top var(--fade) / var(--cn) no-repeat,
+    url(/esquina-bl.png) left var(--side) bottom var(--fade) / var(--cn) no-repeat,
+    url(/esquina-br.png) right var(--side) bottom var(--fade) / var(--cn) no-repeat,
+    radial-gradient(60% 40% at 50% 45%, rgba(46,74,150,.35), transparent 70%),
+    url(/terciopelo.webp) center / 448px repeat, #0B1A3D;
+  inset: 0; animation: none;
+}
+.ink-dark::after {
+  content: ""; position: absolute; z-index: -1; pointer-events: none;
+  top: calc(var(--fade) + var(--cn) * .255); bottom: calc(var(--fade) + var(--cn) * .255);
+  left: calc(var(--side) + var(--cn) * .255); right: calc(var(--side) + var(--cn) * .255);
+  border: 1px solid rgba(212,175,55,.75);
+  box-shadow: inset 0 0 0 calc(var(--cn) * .035) transparent, inset 0 0 0 calc(var(--cn) * .035 + 1px) rgba(212,175,55,.55);
+}
+.ink-dark-end::before {
+  background:
+    url(/esquina-tl.png) left var(--side) top var(--fade) / var(--cn) no-repeat,
+    url(/esquina-tr.png) right var(--side) top var(--fade) / var(--cn) no-repeat,
+    url(/esquina-bl.png) left var(--side) bottom 14px / var(--cn) no-repeat,
+    url(/esquina-br.png) right var(--side) bottom 14px / var(--cn) no-repeat,
+    radial-gradient(60% 40% at 50% 45%, rgba(46,74,150,.35), transparent 70%),
+    url(/terciopelo.webp) center / 448px repeat, #0B1A3D;
+}
+.ink-dark-end::after { bottom: calc(14px + var(--cn) * .255); }
+
+/* Telas que ondean en las esquinas */
+.drape { position: absolute; z-index: -1; pointer-events: none; width: min(52vw, 300px); aspect-ratio: 1; background: center / contain no-repeat;
+  filter: drop-shadow(0 12px 18px rgba(0,0,0,.45)); will-change: transform; }
+.drape-tl { background-image: url(/tela-tl.webp); left: -18px; top: calc(var(--fade) - 40px); transform-origin: 8% 6%; animation: drapeTL 7s ease-in-out infinite; }
+.drape-br { background-image: url(/tela-br.webp); right: -18px; bottom: calc(var(--fade) - 40px); transform-origin: 94% 94%; animation: drapeBR 8s ease-in-out infinite; }
+.ink-dark-end .drape-tl { top: calc(var(--fade) - 40px); }
+@keyframes drapeTL {
+  0%,100% { transform: rotate(0deg) skew(0deg, 0deg) scale(1, 1); }
+  30% { transform: rotate(-2.2deg) skew(1.5deg, -1deg) scale(1.02, .985); }
+  65% { transform: rotate(1.6deg) skew(-1deg, 1.2deg) scale(.99, 1.015); }
+}
+@keyframes drapeBR {
+  0%,100% { transform: rotate(0deg) skew(0deg, 0deg) scale(1, 1); }
+  35% { transform: rotate(2deg) skew(-1.4deg, 1deg) scale(1.015, .99); }
+  70% { transform: rotate(-1.5deg) skew(1deg, -1.2deg) scale(.99, 1.02); }
+}
+@media (prefers-reduced-motion: reduce) { .drape { animation: none; } }
