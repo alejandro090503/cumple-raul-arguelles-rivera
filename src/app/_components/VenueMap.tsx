@@ -13,6 +13,7 @@ export function VenueMap() {
   useEffect(() => {
     let map: import("leaflet").Map | null = null;
     let cancelled = false;
+    let ro: ResizeObserver | null = null;
     import("leaflet").then((L) => {
       if (cancelled || !box.current) return;
       map = L.map(box.current, {
@@ -37,9 +38,14 @@ export function VenueMap() {
         iconSize: [0, 0],
       });
       L.marker([LAT, LNG], { icon }).addTo(map);
+      const fix = () => map?.invalidateSize();
+      ro = new ResizeObserver(fix);
+      ro.observe(box.current);
+      [300, 1000, 2500].forEach((t) => setTimeout(fix, t));
     });
     return () => {
       cancelled = true;
+      ro?.disconnect();
       map?.remove();
     };
   }, []);
