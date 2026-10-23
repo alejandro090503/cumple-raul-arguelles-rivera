@@ -799,7 +799,7 @@ function SectionTitle({ eyebrow, title }: { eyebrow?: string; title: string }) {
 function Mensaje() {
   return (
     <Section className="fx ink-oval halo" bg="transparent" style={{ minHeight: 600, display: "flex", alignItems: "center", justifyContent: "center", paddingLeft: 56, paddingRight: 56 }}>
-      <InView style={{ maxWidth: 460, margin: "0 auto" }} amount={0.35}>
+      <InView style={{ maxWidth: 230, margin: "0 auto" }} amount={0.35}>
         <WordReveal
           text="Medio siglo de vida, de trabajo y de cariño. Con el corazón agradecido, tenemos el honor de invitarte a celebrar los 50 años de Raúl Argüelles Rivera"
           style={{
@@ -914,7 +914,7 @@ function Ceremonia() {
               marginBottom: 12,
             }}
           >
-            Muy importante
+            No lo olvides
           </p>
           <p
             style={{
@@ -928,10 +928,10 @@ function Ceremonia() {
               marginBottom: 12,
             }}
           >
-            Evento solo para adultos
+            Confirma antes del 15 de diciembre
           </p>
           <p style={{ fontFamily: "var(--font-body)", fontWeight: 500, fontSize: 16, color: C.gray, textAlign: "center", lineHeight: 1.6 }}>
-            Agradecemos tu comprensión.
+            Así podremos apartar tu lugar con todo detalle.
           </p>
         </motion.div>
       </InView>
@@ -942,7 +942,7 @@ function Ceremonia() {
 /* ─── Sketch icons ─── */
 function IconCoctel() {
   return (
-    <svg width="72" height="72" viewBox="0 0 80 80" fill="none" stroke={C.black} strokeWidth="1.1" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <svg width="72" height="72" viewBox="0 0 80 80" fill="none" stroke={C.charcoal} strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
       <path d="M16 18 L40 52 L64 18 Z" />
       <line x1="40" y1="52" x2="40" y2="68" />
       <line x1="30" y1="68" x2="50" y2="68" />
@@ -954,7 +954,7 @@ function IconCoctel() {
 }
 function IconRecepcion() {
   return (
-    <svg width="72" height="72" viewBox="0 0 80 80" fill="none" stroke={C.black} strokeWidth="1.1" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <svg width="72" height="72" viewBox="0 0 80 80" fill="none" stroke={C.charcoal} strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
       <path d="M24 16 Q20 32 28 40 L28 62" />
       <path d="M24 16 Q28 32 28 40" />
       <line x1="20" y1="62" x2="36" y2="62" />
@@ -971,7 +971,7 @@ function IconRecepcion() {
 }
 function IconCena() {
   return (
-    <svg width="72" height="72" viewBox="0 0 80 80" fill="none" stroke={C.black} strokeWidth="1.1" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <svg width="72" height="72" viewBox="0 0 80 80" fill="none" stroke={C.charcoal} strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
       <line x1="26" y1="16" x2="26" y2="64" />
       <line x1="20" y1="16" x2="20" y2="32" />
       <line x1="26" y1="16" x2="26" y2="32" />
@@ -984,7 +984,7 @@ function IconCena() {
 }
 function IconBaile() {
   return (
-    <svg width="72" height="72" viewBox="0 0 80 80" fill="none" stroke={C.black} strokeWidth="1.1" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <svg width="72" height="72" viewBox="0 0 80 80" fill="none" stroke={C.charcoal} strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
       <line x1="44" y1="18" x2="44" y2="54" />
       <line x1="44" y1="18" x2="64" y2="14" />
       <line x1="64" y1="14" x2="64" y2="50" />
@@ -1052,7 +1052,10 @@ function Itinerario() {
                 hidden: { scale: 0.4, opacity: 0, rotate: -6 },
                 show: { scale: 1, opacity: 1, rotate: 0, transition: { type: "spring", stiffness: 160, damping: 13 } },
               }}
+              className="it-medal"
             >
+              <span className="it-ring" aria-hidden="true" />
+              <span className="it-glint" aria-hidden="true" />
               {item.icon}
             </motion.div>
 
@@ -1069,7 +1072,7 @@ function Itinerario() {
                 marginBottom: 6,
               }}
             >
-              {item.evento}
+              <span className="text-shimmer">{item.evento}</span>
             </MaskLine>
 
             <motion.p
@@ -1092,7 +1095,8 @@ function Itinerario() {
               <motion.div
                 aria-hidden="true"
                 variants={{ hidden: { scaleY: 0 }, show: { scaleY: 1, transition: { duration: 0.55, ease: EASE } } }}
-                style={{ width: 1, height: 52, backgroundColor: C.black, opacity: 0.18, margin: "20px auto", transformOrigin: "top" }}
+                className="it-link"
+                style={{ width: 2, height: 64, margin: "22px auto", transformOrigin: "top" }}
               />
             )}
           </motion.div>
@@ -1125,14 +1129,16 @@ function Vestimenta() {
   return (
     <Section id="vestimenta" className="fx mesh mesh-b halo" bg="transparent">
       <InView style={{ maxWidth: 400, margin: "0 auto" }} amount={0.3}>
-        <SectionTitle eyebrow="Código de vestimenta" title="FORMAL" />
-        <motion.p variants={rise} style={{ fontFamily: "var(--font-heading)", fontStyle: "italic", fontWeight: 600, fontSize: "clamp(1.2rem, 4.8vw, 1.4rem)", color: C.gray, marginBottom: 10 }}>
-          Acompáñanos vestido para la ocasión
-        </motion.p>
-        <motion.div variants={rise} style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 10, marginBottom: 28 }}>
-          <span style={{ width: 22, height: 22, borderRadius: "50%", background: "#000", boxShadow: "0 0 0 2px #fff, 0 0 0 3px rgba(168,132,31,.7)" }} />
-          <span style={{ fontFamily: "var(--font-body)", fontWeight: 600, fontSize: 15, letterSpacing: "0.14em", textTransform: "uppercase", color: C.charcoal }}>Color sugerido: negro</span>
+        <motion.p variants={riseSmall} className="fab-label">Código de vestimenta</motion.p>
+        <MaskLine as="h2" style={{ fontFamily: "var(--font-heading)", fontWeight: 600, fontSize: "clamp(2.6rem, 11vw, 3.6rem)", color: C.black, lineHeight: 1.1, margin: "6px 0 14px" }}>
+          Formal
+        </MaskLine>
+        <motion.div variants={fade} className="fab-divider" aria-hidden="true">
+          <span className="fab-line" />
+          <svg viewBox="0 0 40 40" fill="none" stroke={C.gold} strokeWidth="1.4"><circle cx="20" cy="20" r="4" /><circle cx="20" cy="20" r="2" /><path d="M12 20 Q15 13 20 16M28 20 Q25 13 20 16M12 20 Q15 27 20 24M28 20 Q25 27 20 24" strokeLinecap="round" /></svg>
+          <span className="fab-line r" />
         </motion.div>
+        <motion.p variants={rise} className="fab-note">Acompáñanos vestido para la ocasión</motion.p>
         <motion.div variants={rise} className="dc-looks">
           {(Object.keys(LOOKS) as (keyof typeof LOOKS)[]).map((k) => (
             <button key={k} type="button" className="dc-look" onClick={() => setOpen(k)} aria-label={`Ver ideas de vestimenta para ${LOOKS[k].head.toLowerCase()}`}>
@@ -1148,6 +1154,15 @@ function Vestimenta() {
               </span>
             </button>
           ))}
+        </motion.div>
+        <motion.div variants={rise} className="fab-swatch-block">
+          <p className="fab-swatch-t">Color sugerido</p>
+          <div className="fab-swatches"><span className="fab-dot" style={{ background: "#000" }} aria-label="Negro" /></div>
+        </motion.div>
+        <motion.div variants={scaleIn} className="fab-verse">
+          <svg viewBox="0 0 32 30" fill="currentColor" aria-hidden="true"><path d="M16 2l3.6 8.4L28 11.6l-6.4 5.8L23.4 26 16 21.6 8.6 26l1.8-8.6L4 11.6l8.4-1.2z" /></svg>
+          <p className="fab-verse-text">Cincuenta años se celebran con quienes han sido parte del camino.</p>
+          <p className="fab-verse-cite">Raúl · 50 años</p>
         </motion.div>
       </InView>
 
@@ -1264,7 +1279,7 @@ function AvisoSorpresa() {
               background: "rgba(212,175,55,0.08)",
             }}
           >
-            <span style={{ fontFamily: "var(--font-heading)", fontWeight: 700, fontSize: 34, lineHeight: 1, color: C.goldLight }}>50</span>
+            <svg width="40" height="40" viewBox="0 0 48 48" fill="none" stroke={C.goldLight} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M10 6h12l-1 10a5 5 0 01-10 0zM16 21v15M11 36h10" /><path d="M26 6h12l-1 10a5 5 0 01-10 0zM32 21v15M27 36h10" /><path d="M21 4l3-2M27 4l-3-2" /></svg>
           </motion.div>
         </motion.div>
 
@@ -1281,7 +1296,7 @@ function AvisoSorpresa() {
             lineHeight: 1.2,
           }}
         >
-          MEDIO SIGLO
+          UNA NOCHE ENTRE ADULTOS
         </motion.h2>
 
         <motion.div
@@ -1302,9 +1317,11 @@ function AvisoSorpresa() {
             maxWidth: 340,
           }}
         >
-          Cincuenta años de historia merecen celebrarse
+          Preparamos esta velada pensando en una noche
           <br />
-          con quienes han sido parte de ella.
+          tranquila entre adultos, para disfrutar y platicar sin prisa.
+          <br />
+          Gracias por ayudarnos a que así sea.
         </motion.p>
 
         <motion.p
@@ -1320,7 +1337,7 @@ function AvisoSorpresa() {
             marginTop: 8,
           }}
         >
-          Gracias por acompañarlo
+          Con cariño, la familia
         </motion.p>
       </InView>
     </Section>
@@ -1334,13 +1351,21 @@ function MesaRegalos() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <Section id="regalos" className="fx ink-soft ink-soft-b halo" bg="transparent">
+    <Section id="regalos" className="fx ink-soft ink-soft-b halo env-rain-host" bg="transparent">
       <InView amount={0.25}>
         <SectionTitle eyebrow="Sugerencia de regalo" title="LLUVIA DE SOBRES" />
         <motion.p variants={rise} style={{ fontFamily: "var(--font-body)", fontWeight: 500, fontSize: 18, color: C.gray, lineHeight: 1.6, maxWidth: 340, margin: "0 auto 32px" }}>
           Tu presencia es el mejor regalo. Si deseas tener un detalle, habrá un buzón para sobres en la recepción.
         </motion.p>
         
+        {/* Sobres que llueven detrás */}
+        <div className="env-rain" aria-hidden="true">
+          {Array.from({ length: 12 }).map((_, i) => (
+            <span key={i} style={{ left: `${(i * 37) % 100}%`, animationDelay: `${-(i * 1.3) % 9}s`, animationDuration: `${7 + (i % 4) * 1.6}s`, transform: `scale(${0.6 + (i % 3) * 0.25})` }}>
+              <svg viewBox="0 0 40 28" width="34" height="24"><rect x="1" y="1" width="38" height="26" rx="3" fill="#FFFDF6" stroke="#C9A227" strokeWidth="1.2" /><path d="M1 3l19 13L39 3" fill="none" stroke="#C9A227" strokeWidth="1.2" /></svg>
+            </span>
+          ))}
+        </div>
         {/* Sobre interactivo */}
         <motion.div variants={scaleIn} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 0 }}>
           <button

@@ -276,12 +276,13 @@ html.io-unavailable main [style*="translate"] {
   content: ""; position: absolute; inset: 0 -8%; z-index: -1; pointer-events: none;
   -webkit-mask-image: linear-gradient(to bottom, transparent 0, rgba(0,0,0,.35) calc(var(--fade) * .45), #000 var(--fade), #000 calc(100% - var(--fade)), rgba(0,0,0,.35) calc(100% - var(--fade) * .45), transparent 100%);
           mask-image: linear-gradient(to bottom, transparent 0, rgba(0,0,0,.35) calc(var(--fade) * .45), #000 var(--fade), #000 calc(100% - var(--fade)), rgba(0,0,0,.35) calc(100% - var(--fade) * .45), transparent 100%);
-  animation: fxDrift 26s ease-in-out infinite alternate;
+  animation: fxDrift 16s ease-in-out infinite alternate;
 }
 @keyframes fxDrift {
-  0%   { transform: translate3d(0, 0, 0) scale(1, 1); }
-  50%  { transform: translate3d(-2.5%, 0, 0) scale(1.05, 1.004); }
-  100% { transform: translate3d(2%, 0, 0) scale(1.08, 1.008); }
+  0%   { transform: translate3d(0, 0, 0) scale(1, 1) rotate(0deg); }
+  33%  { transform: translate3d(-4%, 0, 0) scale(1.06, 1.006) rotate(-.6deg); }
+  66%  { transform: translate3d(3%, 0, 0) scale(1.09, 1.01) rotate(.5deg); }
+  100% { transform: translate3d(-1.5%, 0, 0) scale(1.05, 1.004) rotate(-.3deg); }
 }
 
 /* Portada: tinta superior, baja difuminada a blanco */
@@ -317,3 +318,45 @@ html.io-unavailable main [style*="translate"] {
 @media (prefers-reduced-motion: reduce) { .fx::before { animation: none; } }
 .halo .text-shimmer, .halo .text-shimmer-light { text-shadow: none !important; filter: drop-shadow(0 0 10px rgba(255,255,255,.95)) drop-shadow(0 0 3px rgba(255,255,255,.9)); }
 .halo h1:has(.text-shimmer), .halo p.text-shimmer { text-shadow: none; }
+
+/* ── Vestimenta (literal boda-fabiola-y-fernando) ── */
+.fab-label { font-family: var(--font-body); font-weight: 700; font-size: 13px; letter-spacing: .3em; text-transform: uppercase; color: #A8841F; }
+.fab-divider { display: flex; align-items: center; justify-content: center; gap: 12px; margin: 0 auto 18px; }
+.fab-divider svg { width: 22px; height: 22px; }
+.fab-line { height: 1px; width: 90px; background: linear-gradient(to left, #14275E, transparent); }
+.fab-line.r { background: linear-gradient(to right, #14275E, transparent); }
+.fab-note { font-family: var(--font-heading); font-style: italic; font-weight: 600; font-size: 19px; color: #3E4A6B; margin-bottom: 34px; }
+.fab-swatch-block { margin: 6px 0 40px; }
+.fab-swatch-t { font-family: var(--font-body); font-weight: 700; font-size: 16px; color: #14275E; margin-bottom: 12px; }
+.fab-swatches { display: flex; justify-content: center; gap: 14px; }
+.fab-dot { width: 32px; height: 32px; border-radius: 50%; box-shadow: 0 0 0 3px #fff, 0 0 0 4px rgba(168,132,31,.6), 0 4px 10px rgba(11,26,61,.2); }
+.fab-verse { max-width: 360px; margin: 0 auto; padding: 34px 26px 28px; border-radius: 22px; border: 1px solid rgba(212,175,55,.45);
+  background: linear-gradient(160deg, #FFFFFF 0%, #F3F6FC 100%); box-shadow: 0 14px 36px rgba(11,26,61,.10); }
+.fab-verse svg { width: 30px; height: 30px; color: #D4AF37; margin: 0 auto 16px; display: block; }
+.fab-verse-text { font-family: var(--font-heading); font-style: italic; font-weight: 600; font-size: 19px; line-height: 1.6; color: #14275E; }
+.fab-verse-cite { margin-top: 16px; font-family: var(--font-body); font-weight: 700; font-size: 13px; letter-spacing: .22em; text-transform: uppercase; color: #A8841F; }
+.fab-verse-cite::before { content: ""; display: block; width: 40px; height: 1px; background: #D4AF37; margin: 0 auto 14px; }
+
+/* ── Itinerario con brillo ── */
+.it-medal { position: relative; width: 112px; height: 112px; border-radius: 50%; display: flex; align-items: center; justify-content: center; overflow: hidden;
+  background: radial-gradient(circle at 50% 35%, #FFFFFF 0%, #F3F6FC 70%); box-shadow: 0 0 0 1.5px rgba(212,175,55,.7), 0 0 0 7px rgba(255,255,255,.7), 0 0 0 8px rgba(212,175,55,.35), 0 12px 30px rgba(11,26,61,.18); }
+.it-medal svg { position: relative; z-index: 1; width: 64px; height: 64px; }
+.it-ring { position: absolute; inset: -6px; border-radius: 50%; box-shadow: 0 0 22px 4px rgba(212,175,55,.45); animation: itPulse 3.2s ease-in-out infinite; }
+.it-glint { position: absolute; inset: 0; z-index: 2; background: linear-gradient(115deg, transparent 35%, rgba(255,255,255,.95) 50%, transparent 65%); transform: translateX(-120%); animation: itGlint 4.5s ease-in-out infinite; }
+@keyframes itPulse { 0%,100% { opacity: .35; transform: scale(.96); } 50% { opacity: 1; transform: scale(1.04); } }
+@keyframes itGlint { 0%, 55% { transform: translateX(-120%); } 85%, 100% { transform: translateX(120%); } }
+.it-link { position: relative; background: linear-gradient(to bottom, rgba(212,175,55,.15), #D4AF37, rgba(212,175,55,.15)); border-radius: 2px; }
+.it-link::after { content: ""; position: absolute; left: 50%; top: 0; width: 8px; height: 8px; margin-left: -4px; border-radius: 50%; background: #FBEFB8;
+  box-shadow: 0 0 10px 3px rgba(212,175,55,.9); animation: itRun 2.4s ease-in-out infinite; }
+@keyframes itRun { 0% { transform: translateY(0); opacity: 0; } 15% { opacity: 1; } 85% { opacity: 1; } 100% { transform: translateY(58px); opacity: 0; } }
+
+/* ── Lluvia de sobres ── */
+.env-rain-host { position: relative; }
+.env-rain { position: absolute; inset: 0 -24px; overflow: hidden; pointer-events: none; z-index: -1; }
+.env-rain span { position: absolute; top: -40px; display: block; animation: envFall 8s linear infinite; opacity: .85; }
+.env-rain span svg { display: block; animation: envSway 3s ease-in-out infinite alternate; filter: drop-shadow(0 3px 5px rgba(11,26,61,.15)); }
+@keyframes envFall { from { translate: 0 0; } to { translate: 0 calc(100% + 900px); } }
+@keyframes envSway { from { transform: rotate(-14deg) translateX(-8px); } to { transform: rotate(14deg) translateX(8px); } }
+#regalos > * { position: relative; z-index: 1; }
+#regalos > .env-rain { position: absolute; }
+@media (prefers-reduced-motion: reduce) { .it-ring, .it-glint, .it-link::after, .env-rain span, .env-rain span svg { animation: none; } .env-rain { display: none; } }
