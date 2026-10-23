@@ -437,3 +437,7 @@ html.io-unavailable main [style*="translate"] {
 .h50-year { font-family: var(--font-heading); font-weight: 700; font-size: 22px; letter-spacing: .3em; color: #A8841F; margin-top: -10px; }
 .h50-city { font-family: var(--font-heading); font-weight: 700; font-size: 16px; letter-spacing: .2em; text-transform: uppercase; color: #14275E; margin-top: -10px; }
 @media (prefers-reduced-motion: reduce) { .h50-num { animation: none; } }
+.halo .h50-num, .halo .h50-mono span { text-shadow: none !important; }
+.h50-date { gap: 12px; }
+.h50-date span { font-size: clamp(14px, 4vw, 20px); letter-spacing: .1em; }
+.h50-date strong { font-size: clamp(2.6rem, 13vw, 4rem); }
