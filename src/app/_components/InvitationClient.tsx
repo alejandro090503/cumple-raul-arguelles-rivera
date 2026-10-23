@@ -1085,83 +1085,40 @@ function Itinerario() {
    VESTIMENTA
    ═══════════════════════════════════════════════════════ */
 function Vestimenta() {
-  const LOOKS = {
-    caballeros: { head: "Caballeros", src: "/look-caballero.png", cap: "Traje oscuro · negro" },
-    damas: { head: "Damas", src: "/look-dama.png", cap: "Vestido largo en tono oscuro" },
-  } as const;
-  const [open, setOpen] = useState<null | keyof typeof LOOKS>(null);
-  useEffect(() => {
-    if (!open) return;
-    document.body.style.overflow = "hidden";
-    const k = (e: KeyboardEvent) => e.key === "Escape" && setOpen(null);
-    window.addEventListener("keydown", k);
-    return () => { document.body.style.overflow = ""; window.removeEventListener("keydown", k); };
-  }, [open]);
-  const ico = {
-    caballeros: <path d="M8 3l4 3 4-3 3 2.2c1.2.9 1.9 2.3 1.9 3.8V21H3V9c0-1.5.7-2.9 1.9-3.8L8 3zM12 6v15M9.4 4.2L12 9l2.6-4.8" />,
-    damas: <path d="M9 3h6l-1.4 5.2L21 21H3l7.4-12.8L9 3zM10.6 8.2h2.8" />,
-  };
   return (
-    <Section id="vestimenta" className="fx mesh mesh-b halo" bg="transparent">
-      <InView style={{ maxWidth: 400, margin: "0 auto" }} amount={0.3}>
-        <motion.p variants={riseSmall} className="fab-label">Código de vestimenta</motion.p>
-        <MaskLine as="h2" style={{ fontFamily: "var(--font-heading)", fontWeight: 600, fontSize: "clamp(2.6rem, 11vw, 3.6rem)", color: C.black, lineHeight: 1.1, margin: "6px 0 14px" }}>
-          Formal
+    <Section id="vestimenta" bg="transparent" className="fx ink-dark halo-dark lj-dc" style={{ paddingTop: 210, paddingBottom: 230 }}>
+      <InView style={{ maxWidth: 360, margin: "0 auto" }} amount={0.25}>
+        <motion.span variants={riseSmall} className="lj-lbl">Etiqueta</motion.span>
+        <MaskLine as="p" style={{ margin: "8px 0 30px" }} duration={1}>
+          <span className="lj-title">Código de Vestimenta</span>
         </MaskLine>
-        <motion.div variants={fade} className="fab-divider" aria-hidden="true">
-          <span className="fab-line" />
-          <svg viewBox="0 0 40 40" fill="none" stroke={C.gold} strokeWidth="1.4"><circle cx="20" cy="20" r="4" /><circle cx="20" cy="20" r="2" /><path d="M12 20 Q15 13 20 16M28 20 Q25 13 20 16M12 20 Q15 27 20 24M28 20 Q25 27 20 24" strokeLinecap="round" /></svg>
-          <span className="fab-line r" />
+        <motion.div variants={rise} className="lj-outfits">
+          <div className="lj-outfit">
+            <span className="lj-card">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/look-caballero.png" alt="Ilustración de caballero con traje oscuro" />
+            </span>
+            <span className="lj-name">Caballero</span>
+            <span className="lj-hint">Traje oscuro<br />Formal</span>
+          </div>
+          <span className="lj-divider" aria-hidden="true" />
+          <div className="lj-outfit">
+            <span className="lj-card">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/look-dama.png" alt="Ilustración de dama con vestido largo" />
+            </span>
+            <span className="lj-name">Dama</span>
+            <span className="lj-hint">Vestido largo o midi<br />Formal</span>
+          </div>
         </motion.div>
-        <motion.p variants={rise} className="fab-note">Acompáñanos vestido para la ocasión</motion.p>
-        <motion.div variants={rise} className="dc-looks">
-          {(Object.keys(LOOKS) as (keyof typeof LOOKS)[]).map((k) => (
-            <button key={k} type="button" className="dc-look" onClick={() => setOpen(k)} aria-label={`Ver ideas de vestimenta para ${LOOKS[k].head.toLowerCase()}`}>
-              <span className="dc-look-ico" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">{ico[k]}</svg>
-              </span>
-              <span className="dc-look-txt">
-                <span className="dc-look-rol">{LOOKS[k].head}</span>
-                <span className="dc-look-cta">Ver ideas</span>
-              </span>
-              <span className="dc-look-arrow" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 6l6 6-6 6" /></svg>
-              </span>
-            </button>
-          ))}
-        </motion.div>
-        <motion.div variants={rise} className="fab-swatch-block">
-          <p className="fab-swatch-t">Color sugerido</p>
-          <div className="fab-swatches"><span className="fab-dot" style={{ background: "#000" }} aria-label="Negro" /></div>
-        </motion.div>
-        <motion.div variants={scaleIn} className="fab-verse">
-          <svg viewBox="0 0 32 30" fill="currentColor" aria-hidden="true"><path d="M16 2l3.6 8.4L28 11.6l-6.4 5.8L23.4 26 16 21.6 8.6 26l1.8-8.6L4 11.6l8.4-1.2z" /></svg>
-          <p className="fab-verse-text">Cincuenta años se celebran con quienes han sido parte del camino.</p>
-          <p className="fab-verse-cite">Raúl · 50 años</p>
+        <motion.p variants={rise} className="lj-type">Formal</motion.p>
+        <motion.p variants={riseSmall} className="lj-type-sub">Elegante · Noche</motion.p>
+        <motion.p variants={rise} className="lj-msg">¡Ven elegante a celebrar con nosotros esta noche tan especial!</motion.p>
+        <motion.div variants={rise} className="lj-avoid">
+          <span className="lj-avoid-txt"><b>Color sugerido</b>El negro es el color de la noche.</span>
+          <span className="lj-sw" style={{ background: "#000" }} role="img" aria-label="Negro" />
         </motion.div>
       </InView>
-
-      {open && (
-        <div className="dc-viewer on" role="dialog" aria-modal="true" aria-label="Ideas de vestimenta" onClick={(e) => e.target === e.currentTarget && setOpen(null)}>
-          <div className="dcv-box">
-            <button className="dc-viewer-close" type="button" aria-label="Cerrar" onClick={() => setOpen(null)}>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round"><path d="M6 6l12 12M18 6L6 18" /></svg>
-            </button>
-            <p className="dcv-head">{LOOKS[open].head}</p>
-            <div className="dcv-viewport">
-              <div className="dcv-track">
-                <figure className="dcv-slide">
-                  <div className="dcv-frame"><div className="dcv-mat">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={LOOKS[open].src} alt={`${LOOKS[open].head} — ${LOOKS[open].cap}`} />
-                  </div></div>
-                </figure>
-              </div>
-            </div>
-            <p className="dcv-cap">{LOOKS[open].cap}</p>
-          </div>
-        </div>
-      )}
     </Section>
   );
 }
@@ -1539,9 +1496,8 @@ export function InvitationClient({ pases, nombre }: { pases: number; nombre: str
         <Itinerario />
         <Divider />
         <Vestimenta />
-        <AvisoSorpresa />
-        <Divider />
         <MesaRegalos />
+        <AvisoSorpresa />
         <Divider />
         <RSVPClient pases={pases} nombre={nombre} />
         <Footer />
