@@ -315,3 +315,5 @@ html.io-unavailable main [style*="translate"] {
 .halo .dc-look *, .halo button * { text-shadow: none; }
 .halo-dark h1, .halo-dark h2, .halo-dark h3, .halo-dark p { text-shadow: 0 0 14px rgba(11,26,61,.95), 0 0 30px rgba(11,26,61,.8); }
 @media (prefers-reduced-motion: reduce) { .fx::before { animation: none; } }
+.halo .text-shimmer, .halo .text-shimmer-light { text-shadow: none !important; filter: drop-shadow(0 0 10px rgba(255,255,255,.95)) drop-shadow(0 0 3px rgba(255,255,255,.9)); }
+.halo h1:has(.text-shimmer), .halo p.text-shimmer { text-shadow: none; }
