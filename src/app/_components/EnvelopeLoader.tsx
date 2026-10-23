@@ -70,7 +70,7 @@ export function EnvelopeLoader({ children }: { children: React.ReactNode }) {
   return (
     <>
       {/* Audio — preload silencioso, se reproduce al revelar la invitación */}
-      <audio ref={audioRef} src="/cancion.mp3" preload="auto" loop />
+      <audio ref={audioRef} src="/cancion.mp3?v=2" preload="auto" loop />
 
       {/* Invitación siempre en DOM, visible debajo del loader */}
       {children}
