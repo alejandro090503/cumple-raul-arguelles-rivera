@@ -582,137 +582,34 @@ function Hero() {
         initial="hidden"
         animate={revealed ? "show" : "hidden"}
       >
-        {/* Eyebrow */}
-        <motion.p
-          variants={riseSmall}
-          style={{
-            fontFamily: "var(--font-body)",
-            fontWeight: 600,
-            fontSize: "clamp(13px, 3.4vw, 15px)",
-            letterSpacing: "0.34em",
-            textTransform: "uppercase",
-            color: C.gold,
-            textAlign: "center",
-          }}
-        >
-          Con gratitud y alegría
-        </motion.p>
-
-        {/* JAVIER — con shimmer */}
-        <MaskLine as="h1" style={nameStyle} duration={1.05}>
-          <span className="text-shimmer">RAÚL</span>
+        {/* Estilo del save the date: monograma, nombre, "Estoy cumpliendo", 50 dorado + Años */}
+        <motion.div variants={popStar} className="h50-mono" aria-hidden="true"><span>RA</span></motion.div>
+        <MaskLine as="h1" style={{ margin: 0 }} duration={1}>
+          <span className="h50-name">Raúl Argüelles Rivera</span>
         </MaskLine>
+        <motion.div variants={fade} className="h50-rule" aria-hidden="true"><i /><b>◆</b><i /></motion.div>
+        <motion.p variants={riseSmall} className="h50-eyebrow"><i />Estoy cumpliendo<i /></motion.p>
 
-        <MaskLine as="h1" style={{ ...nameStyle, fontSize: "clamp(1.35rem, 6.4vw, 4rem)", letterSpacing: "0.06em", whiteSpace: "nowrap", marginTop: "calc(-1 * clamp(12px, 3vw, 24px))" }} duration={1.05}>
-          <span className="text-shimmer">ARGÜELLES RIVERA</span>
-        </MaskLine>
-        {/* 60 */}
-        <motion.p
-          aria-hidden="true"
+        <motion.div
+          className="h50-wrap"
           variants={{
-            hidden: { opacity: 0, scale: 0.3, rotate: -8 },
-            show: { opacity: 1, scale: 1, rotate: 0, transition: { type: "spring", stiffness: 130, damping: 12, mass: 0.7 } },
-          }}
-          style={{
-            fontFamily: "var(--font-heading)",
-            fontWeight: 700,
-            fontSize: "clamp(5rem, 20vw, 10rem)",
-            color: C.gold,
-            lineHeight: 0.85,
-            textShadow: `0 0 30px rgba(212,175,55,0.3), 0 0 60px rgba(212,175,55,0.15)`,
+            hidden: { opacity: 0, scale: 0.6, y: 20 },
+            show: { opacity: 1, scale: 1, y: 0, transition: { type: "spring", stiffness: 110, damping: 13, mass: 0.8 } },
           }}
         >
-          <motion.span
-            style={{ display: "inline-block", willChange: "transform" }}
-            animate={{ y: [0, -12, 0] }}
-            transition={{ duration: 4.5, ease: "easeInOut", repeat: Infinity }}
-          >
-            50
-          </motion.span>
-        </motion.p>
-
-        {/* ZAMUDIO — con shimmer */}
-
-        <Ornament width={120} />
-
-        {/* Texto invitación */}
-        <motion.p
-          variants={rise}
-          style={{
-            fontFamily: "var(--font-body)",
-            fontWeight: 500,
-            fontSize: "clamp(14px, 3.6vw, 16px)",
-            letterSpacing: "0.22em",
-            textTransform: "uppercase",
-            color: C.charcoal,
-            lineHeight: 2,
-            textAlign: "center",
-            maxWidth: 300,
-          }}
-        >
-          Te invitamos a celebrar
-          <br />
-          sus cincuenta años de vida
-        </motion.p>
-
-        {/* Fecha grande */}
-        <motion.div variants={rise} style={{ textAlign: "center" }}>
-          <p
-            className="text-shimmer"
-            style={{
-              fontFamily: "var(--font-heading)",
-              fontWeight: 700,
-              fontSize: "clamp(2.2rem, 10vw, 5.5rem)",
-              letterSpacing: "0.06em",
-              color: C.black,
-              lineHeight: 1,
-              margin: 0,
-            }}
-          >
-            ENERO 2
-          </p>
-          <p
-            style={{
-              fontFamily: "var(--font-heading)",
-              fontWeight: 700,
-              fontSize: "clamp(2.2rem, 10vw, 5.5rem)",
-              letterSpacing: "0.06em",
-              color: C.black,
-              lineHeight: 1.05,
-              margin: 0,
-            }}
-          >
-            2027
-          </p>
+          <svg className="h50-flour l" viewBox="0 0 40 160" aria-hidden="true"><path d="M20 4c-10 14 10 22 0 36s10 22 0 36 10 22 0 36 10 22 0 44M20 30c8-2 12-8 10-14M20 66c-8-2-12-8-10-14M20 102c8-2 12-8 10-14M20 138c-8-2-12-8-10-14" /></svg>
+          <span className="h50-num" aria-label="50">50</span>
+          <span className="h50-anos">Años</span>
+          <svg className="h50-flour r" viewBox="0 0 40 160" aria-hidden="true"><path d="M20 4c-10 14 10 22 0 36s10 22 0 36 10 22 0 36 10 22 0 44M20 30c8-2 12-8 10-14M20 66c-8-2-12-8-10-14M20 102c8-2 12-8 10-14M20 138c-8-2-12-8-10-14" /></svg>
         </motion.div>
 
-        {/* Línea vertical */}
-        <motion.div
-          aria-hidden="true"
-          variants={{ hidden: { scaleY: 0 }, show: { scaleY: 1, transition: { duration: 0.7, ease: EASE } } }}
-          style={{
-            width: 1,
-            height: "clamp(36px, 6vw, 52px)",
-            backgroundColor: C.gold,
-            opacity: 0.4,
-            transformOrigin: "top",
-          }}
-        />
-
-        {/* Lugar */}
-        <motion.p
-          variants={rise}
-          style={{
-            fontFamily: "var(--font-heading)",
-            fontStyle: "italic",
-            fontWeight: 500,
-            fontSize: "clamp(18px, 4.6vw, 21px)",
-            color: C.gray,
-            textAlign: "center",
-          }}
-        >
-          Sábado · Phoenix, Arizona
-        </motion.p>
+        <motion.p variants={rise} className="h50-msg">Y me encantaría compartir<br />este momento tan especial contigo.</motion.p>
+        <motion.div variants={fade} className="h50-rule" aria-hidden="true"><i /><b>❦</b><i /></motion.div>
+        <motion.div variants={rise} className="h50-date">
+          <span>Sábado</span><em /><strong>02</strong><em /><span>Enero</span>
+        </motion.div>
+        <motion.p variants={riseSmall} className="h50-year">2027</motion.p>
+        <motion.p variants={riseSmall} className="h50-city">Phoenix, Arizona</motion.p>
 
         <Countdown />
       </motion.div>

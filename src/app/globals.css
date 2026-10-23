@@ -404,3 +404,36 @@ html.io-unavailable main [style*="translate"] {
 .lj-avoid-txt b { display: block; font-weight: 700; font-size: 16px; letter-spacing: 2px; text-transform: uppercase; color: #F1DC8C; margin-bottom: 2px; }
 .lj-sw { display: block; width: 44px; height: 44px; border-radius: 50%; border: 1px solid rgba(241,220,140,.6); box-shadow: 0 0 0 4px rgba(212,175,55,.18), 0 4px 14px -6px rgba(0,0,0,.7); }
 @media (prefers-reduced-motion: reduce) { .lj-card { animation: none; } }
+
+/* ── Portada estilo save the date (50 dorado + Años) ── */
+.h50-mono { width: 74px; height: 74px; border-radius: 50%; border: 1.5px solid #C9A227; outline: 1px solid rgba(201,162,39,.45); outline-offset: 4px;
+  display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,.6); }
+.h50-mono span { font-family: var(--font-heading); font-weight: 700; font-size: 28px; letter-spacing: -.04em;
+  background: linear-gradient(115deg,#8E6C17,#D4AF37 35%,#FBEFB8 50%,#C9A227 65%,#8E6C17); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.h50-name { display: block; font-family: var(--font-heading); font-weight: 700; font-size: clamp(1.45rem, 7vw, 2.6rem); letter-spacing: .1em; text-transform: uppercase; color: #14275E; line-height: 1.15; }
+.h50-rule { display: flex; align-items: center; justify-content: center; gap: 10px; color: #C9A227; font-size: 11px; }
+.h50-rule i { display: block; height: 1px; width: 92px; background: linear-gradient(to right, transparent, #C9A227); }
+.h50-rule i + b + i { background: linear-gradient(to left, transparent, #C9A227); }
+.h50-eyebrow { display: flex; align-items: center; gap: 12px; font-family: var(--font-heading); font-weight: 700; font-size: clamp(14px, 4vw, 18px); letter-spacing: .14em; text-transform: uppercase; color: #A8841F; }
+.h50-eyebrow i { display: block; height: 1px; width: 34px; background: #C9A227; }
+.h50-wrap { position: relative; display: flex; align-items: center; justify-content: center; padding: 0 6px 34px; margin-top: -6px; }
+.h50-num { position: relative; font-family: var(--font-heading); font-weight: 700; font-size: clamp(8rem, 42vw, 13rem); line-height: .9; letter-spacing: -.02em;
+  background:
+    repeating-linear-gradient(35deg, rgba(255,255,255,.0) 0 6px, rgba(255,255,255,.10) 6px 7px),
+    linear-gradient(170deg, #FFF3C4 0%, #E9C766 22%, #C9A227 42%, #F6E3A1 55%, #B08A1E 72%, #8E6C17 100%);
+  background-size: 100% 100%, 100% 220%; -webkit-background-clip: text; background-clip: text; color: transparent;
+  filter: drop-shadow(0 2px 0 #7A5C12) drop-shadow(0 8px 14px rgba(11,26,61,.28));
+  animation: h50Sheen 6s ease-in-out infinite; }
+@keyframes h50Sheen { 0%,100% { background-position: 0 0, 0 0%; } 50% { background-position: 0 0, 0 100%; } }
+.h50-anos { position: absolute; left: 50%; bottom: 0; transform: translateX(-38%) rotate(-6deg); font-family: var(--font-script); font-size: clamp(3.6rem, 18vw, 5.6rem);
+  color: #14275E; line-height: 1; text-shadow: 0 0 10px #fff, 0 0 18px rgba(255,255,255,.9); white-space: nowrap; }
+.h50-flour { width: 28px; height: 120px; fill: none; stroke: #C9A227; stroke-width: 1.6; stroke-linecap: round; flex-shrink: 0; opacity: .9; }
+.h50-flour.r { transform: scaleX(-1); }
+.h50-msg { font-family: var(--font-heading); font-weight: 700; font-size: clamp(14px, 3.9vw, 17px); letter-spacing: .08em; text-transform: uppercase; color: #14275E; line-height: 1.55; }
+.h50-date { display: flex; align-items: center; justify-content: center; gap: 16px; font-family: var(--font-heading); color: #14275E; }
+.h50-date span { font-weight: 700; font-size: clamp(16px, 4.6vw, 22px); letter-spacing: .14em; text-transform: uppercase; }
+.h50-date strong { font-weight: 700; font-size: clamp(3rem, 15vw, 4.4rem); line-height: 1; }
+.h50-date em { display: block; width: 1px; height: 54px; background: #C9A227; }
+.h50-year { font-family: var(--font-heading); font-weight: 700; font-size: 22px; letter-spacing: .3em; color: #A8841F; margin-top: -10px; }
+.h50-city { font-family: var(--font-heading); font-weight: 700; font-size: 16px; letter-spacing: .2em; text-transform: uppercase; color: #14275E; margin-top: -10px; }
+@media (prefers-reduced-motion: reduce) { .h50-num { animation: none; } }
