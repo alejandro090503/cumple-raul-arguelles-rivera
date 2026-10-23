@@ -273,19 +273,19 @@ html.io-unavailable main [style*="translate"] {
 :root { --fade: 150px; }
 .fx { position: relative; isolation: isolate; overflow: hidden; }
 .fx::before {
-  content: ""; position: absolute; inset: -6% -8%; z-index: -1; pointer-events: none;
+  content: ""; position: absolute; inset: 0 -8%; z-index: -1; pointer-events: none;
   -webkit-mask-image: linear-gradient(to bottom, transparent 0, rgba(0,0,0,.35) calc(var(--fade) * .45), #000 var(--fade), #000 calc(100% - var(--fade)), rgba(0,0,0,.35) calc(100% - var(--fade) * .45), transparent 100%);
           mask-image: linear-gradient(to bottom, transparent 0, rgba(0,0,0,.35) calc(var(--fade) * .45), #000 var(--fade), #000 calc(100% - var(--fade)), rgba(0,0,0,.35) calc(100% - var(--fade) * .45), transparent 100%);
   animation: fxDrift 26s ease-in-out infinite alternate;
 }
 @keyframes fxDrift {
-  0%   { transform: translate3d(0, 0, 0) scale(1); }
-  50%  { transform: translate3d(-2%, 1.2%, 0) scale(1.05); }
-  100% { transform: translate3d(1.5%, -1%, 0) scale(1.08); }
+  0%   { transform: translate3d(0, 0, 0) scale(1, 1); }
+  50%  { transform: translate3d(-2.5%, 0, 0) scale(1.05, 1.004); }
+  100% { transform: translate3d(2%, 0, 0) scale(1.08, 1.008); }
 }
 
 /* Portada: tinta superior, baja difuminada a blanco */
-.ink-hero::before { background: url(/tinta-top.webp) top center / 110% auto no-repeat, radial-gradient(70% 45% at 85% 80%, rgba(212,175,55,.16), transparent 70%), radial-gradient(60% 40% at 10% 65%, rgba(30,58,138,.10), transparent 70%);
+.ink-hero::before { inset: 0 -8%; background: url(/tinta-top.webp) top center / 110% auto no-repeat, radial-gradient(70% 45% at 85% 80%, rgba(212,175,55,.16), transparent 70%), radial-gradient(60% 40% at 10% 65%, rgba(30,58,138,.10), transparent 70%);
   -webkit-mask-image: linear-gradient(to bottom, #000 0, #000 55%, rgba(0,0,0,.35) calc(100% - var(--fade) * .45), transparent 100%);
           mask-image: linear-gradient(to bottom, #000 0, #000 55%, rgba(0,0,0,.35) calc(100% - var(--fade) * .45), transparent 100%); }
 /* Mensaje dentro del óvalo */
@@ -298,7 +298,7 @@ html.io-unavailable main [style*="translate"] {
 .ink-dark::before { background: radial-gradient(60% 45% at 50% 50%, rgba(212,175,55,.14), transparent 70%), linear-gradient(rgba(11,26,61,.70), rgba(11,26,61,.80)), url(/tinta-footer.webp) center / cover, #0B1A3D; --fade: 190px; }
 .ink-dark-end::before {
   -webkit-mask-image: linear-gradient(to bottom, transparent 0, rgba(0,0,0,.35) 85px, #000 190px, #000 100%);
-          mask-image: linear-gradient(to bottom, transparent 0, rgba(0,0,0,.35) 85px, #000 190px, #000 100%); inset: 0 -8% -6% -8%; }
+          mask-image: linear-gradient(to bottom, transparent 0, rgba(0,0,0,.35) 85px, #000 190px, #000 100%); inset: 0 -8%; }
 /* Donde no hay tinta: degradado vivo (esferas difuminadas, responsivo en %) */
 .mesh::before {
   background:
