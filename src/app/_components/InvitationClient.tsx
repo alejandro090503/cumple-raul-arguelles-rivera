@@ -233,7 +233,7 @@ function Divider() {
   return (
     <motion.div
       className="flex items-center justify-center"
-      style={{ backgroundColor: C.cream, paddingTop: 24, paddingBottom: 24 }}
+      style={{ backgroundColor: "transparent", paddingTop: 24, paddingBottom: 24 }}
       variants={group(0.1)}
       initial="hidden"
       whileInView="show"
@@ -535,7 +535,7 @@ function Hero() {
   return (
     <section
       ref={ref}
-      className="flex flex-col items-center text-center ink-hero"
+      className="flex flex-col items-center text-center fx ink-hero halo"
       style={{
         minHeight: "100dvh",
         justifyContent: "center",
@@ -798,7 +798,7 @@ function SectionTitle({ eyebrow, title }: { eyebrow?: string; title: string }) {
    ═══════════════════════════════════════════════════════ */
 function Mensaje() {
   return (
-    <Section className="ink-oval" style={{ minHeight: 560, display: "flex", alignItems: "center", justifyContent: "center", paddingLeft: 56, paddingRight: 56 }}>
+    <Section className="fx ink-oval halo" bg="transparent" style={{ minHeight: 600, display: "flex", alignItems: "center", justifyContent: "center", paddingLeft: 56, paddingRight: 56 }}>
       <InView style={{ maxWidth: 460, margin: "0 auto" }} amount={0.35}>
         <WordReveal
           text="Medio siglo de vida, de trabajo y de cariño. Con el corazón agradecido, tenemos el honor de invitarte a celebrar los 50 años de Raúl Argüelles Rivera"
@@ -822,7 +822,7 @@ function Mensaje() {
    ═══════════════════════════════════════════════════════ */
 function Ceremonia() {
   return (
-    <Section id="ceremonia">
+    <Section id="ceremonia" className="fx mesh mesh-a halo" bg="transparent">
       <InView style={{ maxWidth: 460, margin: "0 auto" }} amount={0.25}>
         <SectionTitle eyebrow="Recepción" title="LA CELEBRACIÓN" />
 
@@ -1032,7 +1032,7 @@ function Itinerario() {
   ];
 
   return (
-    <Section id="itinerario" className="ink-soft" bg="transparent">
+    <Section id="itinerario" className="fx ink-soft halo" bg="transparent">
       <InView amount={0.3}>
         <SectionTitle title="ITINERARIO" />
       </InView>
@@ -1123,7 +1123,7 @@ function Vestimenta() {
     damas: <path d="M9 3h6l-1.4 5.2L21 21H3l7.4-12.8L9 3zM10.6 8.2h2.8" />,
   };
   return (
-    <Section id="vestimenta">
+    <Section id="vestimenta" className="fx mesh mesh-b halo" bg="transparent">
       <InView style={{ maxWidth: 400, margin: "0 auto" }} amount={0.3}>
         <SectionTitle eyebrow="Código de vestimenta" title="FORMAL" />
         <motion.p variants={rise} style={{ fontFamily: "var(--font-heading)", fontStyle: "italic", fontWeight: 600, fontSize: "clamp(1.2rem, 4.8vw, 1.4rem)", color: C.gray, marginBottom: 10 }}>
@@ -1181,7 +1181,7 @@ function Vestimenta() {
    ═══════════════════════════════════════════════════════ */
 function AvisoSorpresa() {
   return (
-    <Section bg={C.navy} className="ink-dark" style={{ position: "relative", overflow: "hidden" }}>
+    <Section bg="transparent" className="fx ink-dark halo-dark" style={{ position: "relative", overflow: "hidden", paddingTop: 200, paddingBottom: 200 }}>
       {/* Partículas doradas flotantes */}
       {[...Array(12)].map((_, i) => (
         <motion.div
@@ -1334,7 +1334,7 @@ function MesaRegalos() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <Section id="regalos" className="ink-soft" bg="transparent">
+    <Section id="regalos" className="fx ink-soft ink-soft-b halo" bg="transparent">
       <InView amount={0.25}>
         <SectionTitle eyebrow="Sugerencia de regalo" title="LLUVIA DE SOBRES" />
         <motion.p variants={rise} style={{ fontFamily: "var(--font-body)", fontWeight: 500, fontSize: 18, color: C.gray, lineHeight: 1.6, maxWidth: 340, margin: "0 auto 32px" }}>
@@ -1426,7 +1426,7 @@ function MesaRegalos() {
 function Footer() {
   return (
     <motion.section
-      className="text-center ink-dark" data-x="" style={{ backgroundColor: C.navy, paddingTop: 72, paddingBottom: 72, paddingLeft: 24, paddingRight: 24 }}
+      className="text-center fx ink-dark ink-dark-end halo-dark" style={{ backgroundColor: "transparent", paddingTop: 190, paddingBottom: 72, paddingLeft: 24, paddingRight: 24 }}
       variants={group(0.14)}
       initial="hidden"
       whileInView="show"
@@ -1530,7 +1530,7 @@ export function InvitationClient({ pases, nombre }: { pases: number; nombre: str
 
   return (
     <MotionConfig reducedMotion="user">
-      <main style={{ backgroundColor: C.cream, width: "100%" }}>
+      <main style={{ backgroundColor: "#FFFFFF", width: "100%", overflowX: "hidden" }}>
         <div id="inicio"><Hero /></div>
         <Mensaje />
         <Divider />

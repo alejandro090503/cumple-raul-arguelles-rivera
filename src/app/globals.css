@@ -265,13 +265,53 @@ html.io-unavailable main [style*="translate"] {
     }
     .dc-viewer-close svg{width:18px;height:18px}
 
-/* Tintas Lekshmy (zafiro + oro) */
-.ink-hero { background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,.55) 55%, #fff 100%), url(/tinta-top.webp) top center / 100% auto no-repeat, #fff; }
-.ink-soft { position: relative; isolation: isolate; }
-.ink-soft::before { content: ""; position: absolute; inset: 0; z-index: -1; background: url(/tinta-hero.webp) center / cover; opacity: .32;
-  -webkit-mask-image: linear-gradient(to bottom, transparent, #000 90px, #000 calc(100% - 90px), transparent);
-          mask-image: linear-gradient(to bottom, transparent, #000 90px, #000 calc(100% - 90px), transparent); }
-.ink-oval { background: url(/tinta-oval.webp) center / auto 112% no-repeat, #fff; }
-.ink-dark { position: relative; isolation: isolate; }
-.ink-dark::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(rgba(11,26,61,.72), rgba(11,26,61,.82)), url(/tinta-footer.webp) center / cover; }
-.ink-corner { background: url(/tinta-corner.webp) center / cover, #fff; }
+/* ═══ Fondos premium · Raúl 50 ═══════════════════════════════
+   Cada sección pinta su fondo en ::before (capa que se mueve lento).
+   Arriba y abajo la capa se desvanece con máscara a transparente
+   en la MISMA distancia (--fade), sobre el blanco de <main>:
+   así cualquier par de secciones se funde igual de suave. */
+:root { --fade: 150px; }
+.fx { position: relative; isolation: isolate; overflow: hidden; }
+.fx::before {
+  content: ""; position: absolute; inset: -6% -8%; z-index: -1; pointer-events: none;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0, rgba(0,0,0,.35) calc(var(--fade) * .45), #000 var(--fade), #000 calc(100% - var(--fade)), rgba(0,0,0,.35) calc(100% - var(--fade) * .45), transparent 100%);
+          mask-image: linear-gradient(to bottom, transparent 0, rgba(0,0,0,.35) calc(var(--fade) * .45), #000 var(--fade), #000 calc(100% - var(--fade)), rgba(0,0,0,.35) calc(100% - var(--fade) * .45), transparent 100%);
+  animation: fxDrift 26s ease-in-out infinite alternate;
+}
+@keyframes fxDrift {
+  0%   { transform: translate3d(0, 0, 0) scale(1); }
+  50%  { transform: translate3d(-2%, 1.2%, 0) scale(1.05); }
+  100% { transform: translate3d(1.5%, -1%, 0) scale(1.08); }
+}
+
+/* Portada: tinta superior, baja difuminada a blanco */
+.ink-hero::before { background: url(/tinta-top.webp) top center / 110% auto no-repeat, radial-gradient(70% 45% at 85% 80%, rgba(212,175,55,.16), transparent 70%), radial-gradient(60% 40% at 10% 65%, rgba(30,58,138,.10), transparent 70%);
+  -webkit-mask-image: linear-gradient(to bottom, #000 0, #000 55%, rgba(0,0,0,.35) calc(100% - var(--fade) * .45), transparent 100%);
+          mask-image: linear-gradient(to bottom, #000 0, #000 55%, rgba(0,0,0,.35) calc(100% - var(--fade) * .45), transparent 100%); }
+/* Mensaje dentro del óvalo */
+.ink-oval::before { background: url(/tinta-oval.webp) center / auto 100% no-repeat; inset: 0 -8%; animation-duration: 30s; }
+/* Tinta suave detrás de itinerario y regalos */
+.ink-soft::before { background: url(/tinta-hero.webp) center / cover; opacity: .42; filter: blur(1.5px); }
+.ink-soft-b::before { background-image: url(/tinta-corner.webp); background-size: cover; opacity: .5; animation-direction: alternate-reverse; }
+/* Secciones oscuras: zafiro + tinta, mismo fundido arriba/abajo hacia el blanco */
+.ink-dark { color: #fff; }
+.ink-dark::before { background: radial-gradient(60% 45% at 50% 50%, rgba(212,175,55,.14), transparent 70%), linear-gradient(rgba(11,26,61,.70), rgba(11,26,61,.80)), url(/tinta-footer.webp) center / cover, #0B1A3D; --fade: 190px; }
+.ink-dark-end::before {
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0, rgba(0,0,0,.35) 85px, #000 190px, #000 100%);
+          mask-image: linear-gradient(to bottom, transparent 0, rgba(0,0,0,.35) 85px, #000 190px, #000 100%); inset: 0 -8% -6% -8%; }
+/* Donde no hay tinta: degradado vivo (esferas difuminadas, responsivo en %) */
+.mesh::before {
+  background:
+    radial-gradient(42% 32% at 12% 22%, rgba(30,58,138,.13), transparent 70%),
+    radial-gradient(38% 30% at 88% 30%, rgba(212,175,55,.20), transparent 70%),
+    radial-gradient(48% 34% at 70% 82%, rgba(30,58,138,.10), transparent 70%),
+    radial-gradient(34% 26% at 22% 78%, rgba(212,175,55,.14), transparent 70%);
+  filter: blur(8px); animation-duration: 18s;
+}
+.mesh-b::before { animation-direction: alternate-reverse; animation-duration: 22s; }
+.mesh-c::before { animation-duration: 20s; animation-delay: -7s; }
+/* Halo para que el texto no se pierda en la tinta */
+.halo h1, .halo h2, .halo h3, .halo p, .halo span { text-shadow: 0 0 2px rgba(255,255,255,.95), 0 0 12px rgba(255,255,255,.95), 0 0 26px rgba(255,255,255,.85); }
+.halo .dc-look *, .halo button * { text-shadow: none; }
+.halo-dark h1, .halo-dark h2, .halo-dark h3, .halo-dark p { text-shadow: 0 0 14px rgba(11,26,61,.95), 0 0 30px rgba(11,26,61,.8); }
+@media (prefers-reduced-motion: reduce) { .fx::before { animation: none; } }

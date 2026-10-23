@@ -114,7 +114,7 @@ export function EnvelopeLoader({ children }: { children: React.ReactNode }) {
           {/* Imagen sobre */}
           <img
             ref={imgRef}
-            src="/sobre.png"
+            src="/sobre.jpg"
             alt="Sobre de invitación"
             draggable={false}
             style={{
