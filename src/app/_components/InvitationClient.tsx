@@ -535,10 +535,9 @@ function Hero() {
   return (
     <section
       ref={ref}
-      className="flex flex-col items-center text-center"
+      className="flex flex-col items-center text-center ink-hero"
       style={{
         minHeight: "100dvh",
-        background: "radial-gradient(60% 40% at 15% 20%, rgba(30,58,138,0.10), transparent 70%), radial-gradient(55% 40% at 90% 75%, rgba(212,175,55,0.16), transparent 70%), #FFFFFF",
         justifyContent: "center",
         paddingTop: "clamp(80px, 14vh, 120px)",
         paddingBottom: "clamp(60px, 10vh, 100px)",
@@ -726,7 +725,9 @@ function Section({
   children,
   bg = C.cream,
   style: styleProp,
+  className = "",
 }: {
+  className?: string;
   id?: string;
   children: React.ReactNode;
   bg?: string;
@@ -735,7 +736,7 @@ function Section({
   return (
     <section
       id={id}
-      className="text-center"
+      className={`text-center ${className}`}
       style={{
         backgroundColor: bg,
         paddingTop: 88,
@@ -797,7 +798,7 @@ function SectionTitle({ eyebrow, title }: { eyebrow?: string; title: string }) {
    ═══════════════════════════════════════════════════════ */
 function Mensaje() {
   return (
-    <Section>
+    <Section className="ink-oval" style={{ minHeight: 560, display: "flex", alignItems: "center", justifyContent: "center", paddingLeft: 56, paddingRight: 56 }}>
       <InView style={{ maxWidth: 460, margin: "0 auto" }} amount={0.35}>
         <WordReveal
           text="Medio siglo de vida, de trabajo y de cariño. Con el corazón agradecido, tenemos el honor de invitarte a celebrar los 50 años de Raúl Argüelles Rivera"
@@ -1031,7 +1032,7 @@ function Itinerario() {
   ];
 
   return (
-    <Section id="itinerario">
+    <Section id="itinerario" className="ink-soft" bg="transparent">
       <InView amount={0.3}>
         <SectionTitle title="ITINERARIO" />
       </InView>
@@ -1105,93 +1106,72 @@ function Itinerario() {
    VESTIMENTA
    ═══════════════════════════════════════════════════════ */
 function Vestimenta() {
+  const LOOKS = {
+    caballeros: { head: "Caballeros", src: "/look-caballero.png", cap: "Traje oscuro · negro" },
+    damas: { head: "Damas", src: "/look-dama.png", cap: "Vestido largo en tono oscuro" },
+  } as const;
+  const [open, setOpen] = useState<null | keyof typeof LOOKS>(null);
+  useEffect(() => {
+    if (!open) return;
+    document.body.style.overflow = "hidden";
+    const k = (e: KeyboardEvent) => e.key === "Escape" && setOpen(null);
+    window.addEventListener("keydown", k);
+    return () => { document.body.style.overflow = ""; window.removeEventListener("keydown", k); };
+  }, [open]);
+  const ico = {
+    caballeros: <path d="M8 3l4 3 4-3 3 2.2c1.2.9 1.9 2.3 1.9 3.8V21H3V9c0-1.5.7-2.9 1.9-3.8L8 3zM12 6v15M9.4 4.2L12 9l2.6-4.8" />,
+    damas: <path d="M9 3h6l-1.4 5.2L21 21H3l7.4-12.8L9 3zM10.6 8.2h2.8" />,
+  };
   return (
     <Section id="vestimenta">
-      <InView style={{ maxWidth: 360, margin: "0 auto" }} amount={0.3}>
-        <MaskLine
-          as="h2"
-          style={{
-            fontFamily: "var(--font-heading)",
-            fontWeight: 600,
-            fontSize: "clamp(2.2rem, 9vw, 3.6rem)",
-            letterSpacing: "0.16em",
-            color: C.black,
-            lineHeight: 1.1,
-            textAlign: "center",
-            marginBottom: 36,
-          }}
-        >
-          VESTIMENTA
-        </MaskLine>
-
-        <motion.div
-          variants={group(0.18)}
-          style={{ display: "flex", alignItems: "flex-end", justifyContent: "center", gap: 36, margin: "0 auto 32px" }}
-          aria-hidden="true"
-        >
-          <motion.svg
-            width="68"
-            height="195"
-            viewBox="0 0 80 200"
-            variants={{ hidden: { opacity: 0, y: 40, scaleY: 0.9 }, show: { opacity: 1, y: 0, scaleY: 1, transition: { duration: 0.85, ease: EASE } } }}
-            style={{ transformOrigin: "bottom" }}
-          >
-            <path fill="#0B0B0B" d="M22,6 L24,20 C16,38 12,62 18,84 C22,104 18,124 16,144 C10,168 2,188 0,200 L80,200 C78,188 70,168 64,144 C62,124 58,104 62,84 C68,62 64,38 56,20 L58,6 C56,6 48,20 40,20 C32,20 24,6 22,6 Z" />
-          </motion.svg>
-
-          <motion.div
-            variants={{ hidden: { scaleY: 0 }, show: { scaleY: 1, transition: { duration: 0.6, ease: EASE } } }}
-            style={{ width: 1, height: 130, backgroundColor: C.black, opacity: 0.12, alignSelf: "center", transformOrigin: "bottom" }}
-          />
-
-          <motion.svg
-            width="118"
-            height="140"
-            viewBox="0 0 140 130"
-            variants={{ hidden: { opacity: 0, y: 40, scaleY: 0.9 }, show: { opacity: 1, y: 0, scaleY: 1, transition: { duration: 0.85, ease: EASE } } }}
-            style={{ transformOrigin: "bottom" }}
-          >
-            <path fill="#0B0B0B" d="M0,30 C0,14 10,4 26,4 L114,4 C130,4 140,14 140,30 L140,130 L0,130 Z" />
-            <path fill="#FFFFFF" d="M50,4 L90,4 L70,68 Z" />
-            <polygon fill="#0B0B0B" points="58,12 58,30 68,21" />
-            <polygon fill="#0B0B0B" points="82,12 82,30 72,21" />
-            <rect fill="#0B0B0B" x="66" y="13" width="8" height="16" rx="1" />
-          </motion.svg>
-        </motion.div>
-
-        <MaskLine
-          as="p"
-          style={{
-            fontFamily: "var(--font-heading)",
-            fontWeight: 700,
-            fontSize: "clamp(2.4rem, 9vw, 3.6rem)",
-            letterSpacing: "0.08em",
-            color: C.charcoal,
-            lineHeight: 1.15,
-            textAlign: "center",
-            marginTop: 8,
-          }}
-          duration={1.1}
-        >
-          Formal
-        </MaskLine>
-        <motion.p
-          variants={rise}
-          style={{
-            fontFamily: "var(--font-body)",
-            fontWeight: 500,
-            fontSize: 16,
-            letterSpacing: "0.16em",
-            textTransform: "uppercase",
-            color: C.gray,
-            textAlign: "center",
-            marginTop: 20,
-            lineHeight: 1.7,
-          }}
-        >
-          Color sugerido: negro
+      <InView style={{ maxWidth: 400, margin: "0 auto" }} amount={0.3}>
+        <SectionTitle eyebrow="Código de vestimenta" title="FORMAL" />
+        <motion.p variants={rise} style={{ fontFamily: "var(--font-heading)", fontStyle: "italic", fontWeight: 600, fontSize: "clamp(1.2rem, 4.8vw, 1.4rem)", color: C.gray, marginBottom: 10 }}>
+          Acompáñanos vestido para la ocasión
         </motion.p>
+        <motion.div variants={rise} style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 10, marginBottom: 28 }}>
+          <span style={{ width: 22, height: 22, borderRadius: "50%", background: "#000", boxShadow: "0 0 0 2px #fff, 0 0 0 3px rgba(168,132,31,.7)" }} />
+          <span style={{ fontFamily: "var(--font-body)", fontWeight: 600, fontSize: 15, letterSpacing: "0.14em", textTransform: "uppercase", color: C.charcoal }}>Color sugerido: negro</span>
+        </motion.div>
+        <motion.div variants={rise} className="dc-looks">
+          {(Object.keys(LOOKS) as (keyof typeof LOOKS)[]).map((k) => (
+            <button key={k} type="button" className="dc-look" onClick={() => setOpen(k)} aria-label={`Ver ideas de vestimenta para ${LOOKS[k].head.toLowerCase()}`}>
+              <span className="dc-look-ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">{ico[k]}</svg>
+              </span>
+              <span className="dc-look-txt">
+                <span className="dc-look-rol">{LOOKS[k].head}</span>
+                <span className="dc-look-cta">Ver ideas</span>
+              </span>
+              <span className="dc-look-arrow" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 6l6 6-6 6" /></svg>
+              </span>
+            </button>
+          ))}
+        </motion.div>
       </InView>
+
+      {open && (
+        <div className="dc-viewer on" role="dialog" aria-modal="true" aria-label="Ideas de vestimenta" onClick={(e) => e.target === e.currentTarget && setOpen(null)}>
+          <div className="dcv-box">
+            <button className="dc-viewer-close" type="button" aria-label="Cerrar" onClick={() => setOpen(null)}>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round"><path d="M6 6l12 12M18 6L6 18" /></svg>
+            </button>
+            <p className="dcv-head">{LOOKS[open].head}</p>
+            <div className="dcv-viewport">
+              <div className="dcv-track">
+                <figure className="dcv-slide">
+                  <div className="dcv-frame"><div className="dcv-mat">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={LOOKS[open].src} alt={`${LOOKS[open].head} — ${LOOKS[open].cap}`} />
+                  </div></div>
+                </figure>
+              </div>
+            </div>
+            <p className="dcv-cap">{LOOKS[open].cap}</p>
+          </div>
+        </div>
+      )}
     </Section>
   );
 }
@@ -1201,7 +1181,7 @@ function Vestimenta() {
    ═══════════════════════════════════════════════════════ */
 function AvisoSorpresa() {
   return (
-    <Section bg={C.navy} style={{ position: "relative", overflow: "hidden" }}>
+    <Section bg={C.navy} className="ink-dark" style={{ position: "relative", overflow: "hidden" }}>
       {/* Partículas doradas flotantes */}
       {[...Array(12)].map((_, i) => (
         <motion.div
@@ -1354,7 +1334,7 @@ function MesaRegalos() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <Section id="regalos">
+    <Section id="regalos" className="ink-soft" bg="transparent">
       <InView amount={0.25}>
         <SectionTitle eyebrow="Sugerencia de regalo" title="LLUVIA DE SOBRES" />
         <motion.p variants={rise} style={{ fontFamily: "var(--font-body)", fontWeight: 500, fontSize: 18, color: C.gray, lineHeight: 1.6, maxWidth: 340, margin: "0 auto 32px" }}>
@@ -1446,8 +1426,7 @@ function MesaRegalos() {
 function Footer() {
   return (
     <motion.section
-      className="text-center"
-      style={{ backgroundColor: C.navy, paddingTop: 72, paddingBottom: 72, paddingLeft: 24, paddingRight: 24 }}
+      className="text-center ink-dark" data-x="" style={{ backgroundColor: C.navy, paddingTop: 72, paddingBottom: 72, paddingLeft: 24, paddingRight: 24 }}
       variants={group(0.14)}
       initial="hidden"
       whileInView="show"

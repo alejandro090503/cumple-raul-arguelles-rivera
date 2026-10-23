@@ -165,3 +165,113 @@ html.io-unavailable main [style*="translate"] {
 .cf-piece { position: fixed; top: -14px; width: 8px; height: 12px; z-index: 10001; pointer-events: none; border-radius: 1px; animation: cfFall var(--d, 2.8s) ease-in forwards; }
 @keyframes cfFall { to { transform: translate(var(--x, 0), 110vh) rotate(720deg); opacity: .9; } }
 @media (prefers-reduced-motion: reduce) { .rsvp-breathe, .cf-piece { animation: none !important; } }
+
+/* Vestimenta · diseño de boda-fabiola-y-fernando en zafiro/oro */
+    .dc-looks{display:flex;flex-direction:column;gap:12px;max-width:380px;margin:8px auto 30px}
+    .dc-look{
+      display:flex;align-items:center;gap:14px;width:100%;padding:14px 16px;
+      cursor:pointer;border-radius:14px;text-align:left;
+      border:1px solid rgba(168,132,31,.35);
+      background:linear-gradient(120deg,#FFFFFF 0%,#F3F6FC 100%);
+      box-shadow:0 10px 24px rgba(11,26,61,.12);
+      transition:transform .22s cubic-bezier(.34,1.56,.64,1),border-color .22s,box-shadow .22s;
+      -webkit-tap-highlight-color:transparent;
+      animation:dcLookBreathe 3.4s ease-in-out infinite;
+    }
+    .dc-looks .dc-look:nth-child(2){animation-delay:1.7s}
+    @keyframes dcLookBreathe{
+      0%,100%{box-shadow:0 10px 24px rgba(11,26,61,.12),0 0 0 0 rgba(168,132,31,0)}
+      50%{box-shadow:0 10px 24px rgba(11,26,61,.12),0 0 20px 2px rgba(168,132,31,.22)}
+    }
+    .dc-look:hover,.dc-look:focus-visible{transform:translateY(-3px);border-color:#A8841F;outline:none}
+    .dc-look:active{transform:translateY(-1px) scale(.985)}
+    .dc-look-ico{
+      flex:0 0 auto;width:46px;height:46px;border-radius:50%;
+      display:flex;align-items:center;justify-content:center;color:#fff;
+      background:linear-gradient(140deg,#E9C766,#A8841F 55%,#8E6C17);
+      box-shadow:0 4px 12px rgba(20,39,94,.35),inset 0 1px 0 rgba(255,255,255,.35);
+    }
+    .dc-look-ico svg{width:24px;height:24px}
+    .dc-look-txt{display:flex;flex-direction:column;gap:2px;flex:1}
+    .dc-look-rol{font-family:var(--font-heading);font-style:italic;font-weight:600;font-size:24px;color:#14275E;line-height:1.15}
+    .dc-look-cta{font-family:var(--font-body);font-weight:700;font-size:13px;letter-spacing:2px;text-transform:uppercase;color:#A8841F}
+    .dc-look-arrow{flex:0 0 auto;width:22px;height:22px;color:#A8841F;animation:dcArrowNudge 1.9s ease-in-out infinite}
+    .dc-look-arrow svg{width:100%;height:100%}
+    @keyframes dcArrowNudge{0%,100%{transform:translateX(0);opacity:.6}50%{transform:translateX(4px);opacity:1}}
+
+    /* Visor */
+    .dc-viewer{
+      position:fixed;inset:0;z-index:100000;
+      display:flex;align-items:center;justify-content:center;padding:16px;
+      background:rgba(11,26,61,.55);
+      backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+      opacity:0;transition:opacity .28s ease;
+    }
+    .dc-viewer.on{opacity:1}
+    .dcv-box{
+      position:relative;width:min(92vw,440px);border-radius:20px;overflow:hidden;
+      background:#FFFFFF;border:1px solid rgba(212,175,55,.6);
+      box-shadow:0 26px 70px rgba(11,26,61,.45);padding:18px 0 16px;
+    }
+    .dcv-head{font-family:var(--font-heading);font-style:italic;font-weight:600;font-size:22px;
+      color:#8E6C17;text-align:center;margin:0 56px 14px}
+    .dcv-viewport{overflow:hidden}
+    .dcv-track{display:flex;transition:transform .42s cubic-bezier(.25,.8,.25,1);touch-action:pan-y}
+    .dcv-slide{flex:0 0 100%;margin:0;display:flex;justify-content:center;padding:0 40px}
+
+    /* — El marco — */
+    .dcv-frame{
+      position:relative;width:100%;max-width:300px;height:min(56vh,440px);
+      padding:14px;border-radius:6px;
+      background:linear-gradient(145deg,#F6E7B0 0%,#C9A227 30%,#FBEFB8 52%,#9C7A1E 74%,#E6C766 100%);
+      box-shadow:0 14px 30px rgba(11,26,61,.28),inset 0 0 0 1px rgba(255,255,255,.55),inset 0 0 0 4px rgba(20,39,94,.18);
+    }
+    .dcv-mat{
+      position:relative;height:100%;border-radius:3px;
+      display:flex;align-items:flex-end;justify-content:center;
+      padding:20px 18px 14px;
+      background:radial-gradient(ellipse 72% 58% at 50% 62%,#FFFFFF 0%,#F5F8FD 62%,#E4EAF6 100%);
+      box-shadow:inset 0 0 0 1px rgba(168,132,31,.28),inset 0 0 0 7px #F5F8FD,inset 0 0 0 8px rgba(212,175,55,.55),inset 0 3px 10px rgba(11,26,61,.16);
+    }
+    .dcv-mat img{max-height:100%;max-width:100%;object-fit:contain;display:block;
+      filter:drop-shadow(0 6px 10px rgba(11,26,61,.2))}
+    /* esquineros del marco */
+    .dcv-frame::before,.dcv-frame::after{
+      content:'';position:absolute;width:18px;height:18px;border:1.5px solid #8E6C17;opacity:.55;pointer-events:none;
+    }
+    .dcv-frame::before{top:6px;left:6px;border-right:none;border-bottom:none}
+    .dcv-frame::after{bottom:6px;right:6px;border-left:none;border-top:none}
+
+    .dcv-cap{margin:14px 16px 8px;text-align:center;font-family:var(--font-body);font-weight:700;
+      font-size:14px;letter-spacing:1.6px;text-transform:uppercase;color:#14275E}
+    .dcv-dots{display:flex;justify-content:center;gap:9px}
+    .dcv-dot{width:9px;height:9px;border-radius:50%;padding:0;cursor:pointer;
+      border:1px solid #A8841F;background:transparent;transition:transform .2s,background .2s}
+    .dcv-dot.on{background:#A8841F;transform:scale(1.25)}
+    .dcv-nav{
+      position:absolute;top:50%;transform:translateY(-50%);z-index:3;
+      width:40px;height:40px;border-radius:50%;cursor:pointer;
+      display:flex;align-items:center;justify-content:center;color:#fff;border:none;
+      background:linear-gradient(140deg,#E9C766,#A8841F 55%,#8E6C17);
+      box-shadow:0 6px 16px rgba(11,26,61,.35);
+    }
+    .dcv-nav svg{width:20px;height:20px}
+    .dcv-prev{left:6px}.dcv-next{right:6px}
+    .dc-viewer-close{
+      position:absolute;top:10px;right:10px;z-index:4;width:40px;height:40px;border-radius:50%;
+      display:flex;align-items:center;justify-content:center;cursor:pointer;color:#fff;border:none;
+      background:linear-gradient(140deg,#E9C766,#A8841F 55%,#8E6C17);
+      box-shadow:0 6px 16px rgba(11,26,61,.35);
+    }
+    .dc-viewer-close svg{width:18px;height:18px}
+
+/* Tintas Lekshmy (zafiro + oro) */
+.ink-hero { background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,.55) 55%, #fff 100%), url(/tinta-top.webp) top center / 100% auto no-repeat, #fff; }
+.ink-soft { position: relative; isolation: isolate; }
+.ink-soft::before { content: ""; position: absolute; inset: 0; z-index: -1; background: url(/tinta-hero.webp) center / cover; opacity: .32;
+  -webkit-mask-image: linear-gradient(to bottom, transparent, #000 90px, #000 calc(100% - 90px), transparent);
+          mask-image: linear-gradient(to bottom, transparent, #000 90px, #000 calc(100% - 90px), transparent); }
+.ink-oval { background: url(/tinta-oval.webp) center / auto 112% no-repeat, #fff; }
+.ink-dark { position: relative; isolation: isolate; }
+.ink-dark::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(rgba(11,26,61,.72), rgba(11,26,61,.82)), url(/tinta-footer.webp) center / cover; }
+.ink-corner { background: url(/tinta-corner.webp) center / cover, #fff; }
