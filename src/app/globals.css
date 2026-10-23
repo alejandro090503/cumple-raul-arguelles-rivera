@@ -471,9 +471,10 @@ html.io-unavailable main [style*="translate"] {
    Oscuros: terciopelo en mosaico + esquinas doradas + marco dibujado en CSS. */
 .ink-hero::before { background: url(/portada-marco.webp) center top / 112% calc(100% - var(--fade) * .6) no-repeat, #0B1A3D; }
 @media (min-width: 700px) { .ink-hero::before { background-size: 100% calc(100% - var(--fade) * .6); } }
-.ink-oval::before, .ink-soft::before, .ink-soft-b::before { background: url(/marco-tira.webp) center top / 100% auto repeat-y, #F5F3EF; }
+.ink-oval::before, .ink-soft::before, .ink-soft-b::before { background: url(/marco-tira.webp) center top / 178% auto repeat-y, #F5F3EF; }
+@media (min-width: 700px) { .ink-oval::before, .ink-soft::before, .ink-soft-b::before { background-size: 100% auto; } }
 .ink-soft-b::before { background-position: center 40%; }
-.ink-oval, .ink-soft, .ink-soft-b { padding-left: 58px !important; padding-right: 58px !important; }
+.ink-oval, .ink-soft, .ink-soft-b { padding-left: 46px !important; padding-right: 46px !important; }
 
 .ink-dark { --fade: 190px; --cn: 110px; --side: 14px; }
 .ink-dark::before {
