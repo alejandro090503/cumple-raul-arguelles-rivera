@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "https://cumple-raul-arguelles-rivera.vercel.app/sobre-og.jpg?v=2",
+        url: "https://cumple-raul-arguelles-rivera.vercel.app/sobre-og.jpg?v=3",
         width: 1200,
         height: 630,
         alt: "Invitación 50 años Raúl Argüelles Rivera — 2 Enero 2027",
@@ -53,7 +53,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Raúl Argüelles Rivera — 50 Años · 2 Enero 2027",
     description: "Celebremos los 50 años de Raúl Argüelles Rivera el sábado 2 de enero de 2027 en Phoenix, Arizona.",
-    images: ["https://cumple-raul-arguelles-rivera.vercel.app/sobre-og.jpg?v=2"],
+    images: ["https://cumple-raul-arguelles-rivera.vercel.app/sobre-og.jpg?v=3"],
   },
 };
 

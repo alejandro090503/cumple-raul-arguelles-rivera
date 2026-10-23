@@ -196,6 +196,8 @@ export function RSVPClient({ pases, nombre }: { pases: number; nombre: string })
 
   return (
     <section id="rsvp" className="pt-36 pb-36 md:pt-52 md:pb-52 px-6 text-center fx mesh mesh-c halo" style={{ backgroundColor: "transparent" }}>
+      <span className="rib rib-b-r" aria-hidden="true" />
+      <span className="drape d-bl2 d-light d-small" aria-hidden="true" />
       <motion.div
         className="max-w-md mx-auto flex flex-col items-center"
         variants={rGroup}

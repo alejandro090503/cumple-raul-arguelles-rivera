@@ -543,9 +543,25 @@ function Hero() {
         position: "relative",
       }}
     >
-      {/* Partículas de brillo decorativas */}
-      {[...Array(6)].map((_, i) => (
-        <motion.div
+      {/* Polvo dorado que flota sobre el fondo */}
+      <div className="h-dust" aria-hidden="true">
+        {Array.from({ length: 28 }).map((_, i) => (
+          <span
+            key={i}
+            style={{
+              left: `${(i * 37 + 11) % 100}%`,
+              top: `${(i * 53 + 7) % 92}%`,
+              width: 2 + (i % 4),
+              height: 2 + (i % 4),
+              animationDelay: `${-((i * 0.9) % 11)}s`,
+              animationDuration: `${8 + (i % 5) * 1.7}s`,
+            }}
+          />
+        ))}
+      </div>
+      <span className="rib rib-a-r" aria-hidden="true" />
+
+      <motion.div
           key={i}
           style={{
             position: "absolute",
@@ -578,7 +594,6 @@ function Hero() {
         animate={revealed ? "show" : "hidden"}
       >
         {/* Estilo del save the date: monograma, nombre, "Estoy cumpliendo", 50 dorado + Años */}
-        <motion.div variants={popStar} className="h50-mono" aria-hidden="true"><span>RA</span></motion.div>
         <MaskLine as="h1" style={{ margin: 0 }} duration={1}>
           <span className="h50-name">Raúl Argüelles Rivera</span>
         </MaskLine>
@@ -692,6 +707,7 @@ function SectionTitle({ eyebrow, title }: { eyebrow?: string; title: string }) {
 function Mensaje() {
   return (
     <Section className="fx ink-oval halo" bg="transparent" style={{ minHeight: 720, display: "flex", alignItems: "center", justifyContent: "center", paddingLeft: 28, paddingRight: 28 }}>
+      <span className="rib rib-b-l" aria-hidden="true" />
       <InView style={{ maxWidth: 340, margin: "0 auto" }} amount={0.35}>
         <WordReveal
           text="Medio siglo de vida, de trabajo y de cariño. Con el corazón agradecido, tenemos el honor de invitarte a celebrar los 50 años de Raúl Argüelles Rivera"
@@ -716,6 +732,7 @@ function Mensaje() {
 function Ceremonia() {
   return (
     <Section id="ceremonia" className="fx mesh mesh-a halo" bg="transparent">
+      <span className="drape d-tr2 d-light d-small" aria-hidden="true" />
       <InView style={{ maxWidth: 460, margin: "0 auto" }} amount={0.25}>
         <SectionTitle eyebrow="Recepción" title="LA CELEBRACIÓN" />
 
@@ -900,6 +917,8 @@ function Itinerario() {
 
   return (
     <Section id="itinerario" className="fx ink-soft halo" bg="transparent">
+      <span className="rib rib-full-l" aria-hidden="true" />
+      <span className="drape d-br d-light" aria-hidden="true" />
       <InView amount={0.3}>
         <SectionTitle title="ITINERARIO" />
       </InView>
@@ -979,8 +998,8 @@ function Itinerario() {
 function Vestimenta() {
   return (
     <Section id="vestimenta" bg="transparent" className="fx ink-dark halo-dark lj-dc" style={{ paddingTop: 210, paddingBottom: 230 }}>
-      <span className="drape drape-tl" aria-hidden="true" />
-      <span className="drape drape-br" aria-hidden="true" />
+      <span className="drape d-tl" aria-hidden="true" />
+      <span className="drape d-br" aria-hidden="true" />
       <InView style={{ maxWidth: 360, margin: "0 auto" }} amount={0.25}>
         <motion.span variants={riseSmall} className="lj-lbl">Etiqueta</motion.span>
         <MaskLine as="p" style={{ margin: "8px 0 30px" }} duration={1}>
@@ -1023,8 +1042,8 @@ function Vestimenta() {
 function AvisoSorpresa() {
   return (
     <Section bg="transparent" className="fx ink-dark halo-dark" style={{ position: "relative", overflow: "hidden", paddingTop: 230, paddingBottom: 260 }}>
-      <span className="drape drape-tl" aria-hidden="true" />
-      <span className="drape drape-br" aria-hidden="true" />
+      <span className="drape d-tr2" aria-hidden="true" />
+      <span className="drape d-bl" aria-hidden="true" />
       {/* Partículas doradas flotantes */}
       {[...Array(12)].map((_, i) => (
         <motion.div
@@ -1180,6 +1199,7 @@ function MesaRegalos() {
 
   return (
     <Section id="regalos" className="fx ink-soft ink-soft-b halo env-rain-host" bg="transparent">
+      <span className="rib rib-a-r rib-low" aria-hidden="true" />
       <InView amount={0.25}>
         <SectionTitle eyebrow="Sugerencia de regalo" title="LLUVIA DE SOBRES" />
         <motion.p variants={rise} style={{ fontFamily: "var(--font-body)", fontWeight: 500, fontSize: 18, color: C.gray, lineHeight: 1.6, maxWidth: 340, margin: "0 auto 32px" }}>
@@ -1285,7 +1305,7 @@ function Footer() {
       whileInView="show"
       viewport={{ once: true, amount: 0.4 }}
     >
-      <span className="drape drape-tl" aria-hidden="true" />
+      <span className="drape d-tr d-small" aria-hidden="true" />
       <motion.p
         aria-hidden="true"
         variants={{ hidden: { opacity: 0, scale: 0.6 }, show: { opacity: 1, scale: 1, transition: { duration: 0.9, ease: EASE } } }}

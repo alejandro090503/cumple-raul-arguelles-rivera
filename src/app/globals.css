@@ -505,20 +505,54 @@ html.io-unavailable main [style*="translate"] {
 }
 .ink-dark-end::after { bottom: calc(14px + var(--cn) * .255); }
 
-/* Telas que ondean en las esquinas */
-.drape { position: absolute; z-index: -1; pointer-events: none; width: min(52vw, 300px); aspect-ratio: 1; background: center / contain no-repeat;
-  filter: drop-shadow(0 12px 18px rgba(0,0,0,.45)); will-change: transform; }
-.drape-tl { background-image: url(/tela-tl.webp); left: -18px; top: calc(var(--fade) - 40px); transform-origin: 8% 6%; animation: drapeTL 7s ease-in-out infinite; }
-.drape-br { background-image: url(/tela-br.webp); right: -18px; bottom: calc(var(--fade) - 40px); transform-origin: 94% 94%; animation: drapeBR 8s ease-in-out infinite; }
-.ink-dark-end .drape-tl { top: calc(var(--fade) - 40px); }
-@keyframes drapeTL {
+
+/* ══ Mantas y cintas ENCIMA del contenido, en esquinas y bordes ══ */
+.fx { --dw: min(64vw, 400px); --rw: 62px; }
+.drape { position: absolute; z-index: 6; pointer-events: none; width: var(--dw); height: var(--dw); background: center / contain no-repeat;
+  filter: drop-shadow(0 16px 22px rgba(0,0,0,.42)); }
+.d-small { --dw: min(46vw, 280px); }
+.d-light { filter: drop-shadow(0 14px 20px rgba(11,26,61,.28)); }
+.d-tl  { background-image: url(/tela-tl.webp);  left: calc(var(--dw) * -.30); top: calc(var(--fade, 150px) - var(--dw) * .34); transform-origin: 8% 8%;  animation: drapeA 7s ease-in-out infinite; }
+.d-tr  { background-image: url(/tela-tr.webp);  right: calc(var(--dw) * -.30); top: calc(var(--fade, 150px) - var(--dw) * .34); transform-origin: 92% 8%; animation: drapeB 7.6s ease-in-out infinite; }
+.d-tr2 { background-image: url(/tela-tr2.webp); right: calc(var(--dw) * -.32); top: calc(var(--fade, 150px) - var(--dw) * .38); transform-origin: 92% 8%; animation: drapeA 8.2s ease-in-out infinite; }
+.d-br  { background-image: url(/tela-br.webp);  right: calc(var(--dw) * -.30); bottom: calc(var(--fade, 150px) - var(--dw) * .34); transform-origin: 92% 92%; animation: drapeB 8s ease-in-out infinite; }
+.d-bl  { background-image: url(/tela-bl.webp);  left: calc(var(--dw) * -.30); bottom: calc(var(--fade, 150px) - var(--dw) * .34); transform-origin: 8% 92%; animation: drapeA 8.6s ease-in-out infinite; }
+.d-bl2 { background-image: url(/tela-bl2.webp); left: calc(var(--dw) * -.32); bottom: calc(var(--fade, 150px) - var(--dw) * .38); transform-origin: 8% 92%; animation: drapeB 7.2s ease-in-out infinite; }
+@keyframes drapeA {
   0%,100% { transform: rotate(0deg) skew(0deg, 0deg) scale(1, 1); }
-  30% { transform: rotate(-2.2deg) skew(1.5deg, -1deg) scale(1.02, .985); }
-  65% { transform: rotate(1.6deg) skew(-1deg, 1.2deg) scale(.99, 1.015); }
+  30% { transform: rotate(-3deg) skew(2deg, -1.4deg) scale(1.03, .975); }
+  62% { transform: rotate(2.2deg) skew(-1.4deg, 1.6deg) scale(.985, 1.025); }
 }
-@keyframes drapeBR {
+@keyframes drapeB {
   0%,100% { transform: rotate(0deg) skew(0deg, 0deg) scale(1, 1); }
-  35% { transform: rotate(2deg) skew(-1.4deg, 1deg) scale(1.015, .99); }
-  70% { transform: rotate(-1.5deg) skew(1deg, -1.2deg) scale(.99, 1.02); }
+  35% { transform: rotate(2.8deg) skew(-1.8deg, 1.2deg) scale(1.025, .98); }
+  70% { transform: rotate(-2deg) skew(1.4deg, -1.6deg) scale(.985, 1.03); }
 }
-@media (prefers-reduced-motion: reduce) { .drape { animation: none; } }
+.rib { position: absolute; z-index: 6; pointer-events: none; width: var(--rw); background: top center / 100% 100% no-repeat;
+  filter: drop-shadow(0 8px 12px rgba(11,26,61,.35)); transform-origin: 50% 0; animation: ribSway 6.5s ease-in-out infinite; }
+.rib-full-l { background-image: url(/cinta-full.webp); height: calc(var(--rw) * 4.76); left: -16px; top: calc(var(--fade, 150px) * .8); }
+.rib-a-r    { background-image: url(/cinta-a.webp); height: calc(var(--rw) * 2.2); right: -12px; top: 0; scale: -1 1; animation-duration: 7.2s; }
+.rib-low    { top: calc(var(--fade, 150px) * .7); }
+.rib-b-l    { background-image: url(/cinta-b.webp); height: calc(var(--rw) * 2.28); left: -14px; bottom: calc(var(--fade, 150px) * .6); transform-origin: 50% 100%; animation-name: ribSwayUp; }
+.rib-b-r    { background-image: url(/cinta-b.webp); height: calc(var(--rw) * 2.28); right: -14px; top: calc(var(--fade, 150px) * .7); scale: -1 1; }
+@keyframes ribSway { 0%,100% { transform: rotate(0deg) translateY(0); } 50% { transform: rotate(2.6deg) translateY(6px); } }
+@keyframes ribSwayUp { 0%,100% { transform: rotate(0deg); } 50% { transform: rotate(-2.6deg) translateY(-5px); } }
+
+/* Polvo dorado de la portada */
+.h-dust { position: absolute; inset: 0; z-index: 2; pointer-events: none; overflow: hidden; }
+.h-dust span { position: absolute; border-radius: 50%; background: radial-gradient(circle, #FFF6C9 0%, #E6C24D 45%, rgba(212,175,55,0) 72%);
+  box-shadow: 0 0 6px rgba(240,205,90,.7); animation: dustFloat 10s ease-in-out infinite; opacity: 0; }
+@keyframes dustFloat {
+  0%   { transform: translate(0, 0) scale(.6); opacity: 0; }
+  15%  { opacity: .95; }
+  50%  { transform: translate(14px, -40px) scale(1); opacity: .7; }
+  80%  { opacity: .9; }
+  100% { transform: translate(-10px, -84px) scale(.5); opacity: 0; }
+}
+
+/* Movimiento de los fondos (horizontal para no romper los fundidos) */
+@keyframes bgSway { 0% { transform: translateX(0) scale(1, 1); } 50% { transform: translateX(-2.2%) scale(1.06, 1.004); } 100% { transform: translateX(1.8%) scale(1.04, 1.002); } }
+.ink-hero::before { transform-origin: 50% 0; animation: bgSway 16s ease-in-out infinite alternate; }
+.ink-oval::before, .ink-soft::before, .ink-soft-b::before { animation: bgSway 14s ease-in-out infinite alternate; }
+.ink-soft-b::before { animation-direction: alternate-reverse; }
+@media (prefers-reduced-motion: reduce) { .drape, .rib, .h-dust span, .ink-hero::before, .ink-oval::before, .ink-soft::before { animation: none; } .h-dust { display: none; } }
