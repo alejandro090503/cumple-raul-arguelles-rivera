@@ -285,7 +285,7 @@ html.io-unavailable main [style*="translate"] {
 }
 
 /* Portada: tinta superior, baja difuminada a blanco */
-.ink-hero::before { inset: 0 -8%; background: url(/tinta-top.webp) top center / 110% auto no-repeat, radial-gradient(70% 45% at 85% 80%, rgba(212,175,55,.16), transparent 70%), radial-gradient(60% 40% at 10% 65%, rgba(30,58,138,.10), transparent 70%);
+.ink-hero::before { inset: 0 -8%; background: linear-gradient(rgba(255,255,255,.58), rgba(255,255,255,.58)), url(/tinta-top.webp) top center / 110% auto no-repeat, radial-gradient(70% 45% at 85% 80%, rgba(212,175,55,.16), transparent 70%), radial-gradient(60% 40% at 10% 65%, rgba(30,58,138,.10), transparent 70%);
   -webkit-mask-image: linear-gradient(to bottom, #000 0, #000 55%, rgba(0,0,0,.35) calc(100% - var(--fade) * .45), transparent 100%);
           mask-image: linear-gradient(to bottom, #000 0, #000 55%, rgba(0,0,0,.35) calc(100% - var(--fade) * .45), transparent 100%); }
 /* Mensaje dentro del óvalo */

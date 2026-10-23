@@ -1181,7 +1181,7 @@ function Vestimenta() {
    ═══════════════════════════════════════════════════════ */
 function AvisoSorpresa() {
   return (
-    <Section bg="transparent" className="fx ink-dark halo-dark" style={{ position: "relative", overflow: "hidden", paddingTop: 200, paddingBottom: 200 }}>
+    <Section bg="transparent" className="fx ink-dark halo-dark" style={{ position: "relative", overflow: "hidden", paddingTop: 230, paddingBottom: 260 }}>
       {/* Partículas doradas flotantes */}
       {[...Array(12)].map((_, i) => (
         <motion.div
