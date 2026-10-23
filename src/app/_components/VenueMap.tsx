@@ -17,19 +17,17 @@ export function VenueMap() {
     import("leaflet").then((L) => {
       if (cancelled || !box.current) return;
       map = L.map(box.current, {
-        center: [LAT + 0.004, LNG],
-        zoom: 14,
+        center: [LAT + 0.0022, LNG],
+        zoom: 15,
         zoomControl: false,
         scrollWheelZoom: false,
         dragging: !L.Browser.mobile,
         attributionControl: true,
       });
-      L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}", {
-        maxZoom: 16,
-        attribution: "Esri",
-      }).addTo(map);
-      L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Reference/MapServer/tile/{z}/{y}/{x}", {
-        maxZoom: 16,
+      L.tileLayer("https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png", {
+        maxZoom: 19,
+        subdomains: "abcd",
+        attribution: "© OpenStreetMap · © CARTO",
       }).addTo(map);
       L.control.zoom({ position: "bottomright" }).addTo(map);
       const icon = L.divIcon({

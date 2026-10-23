@@ -365,7 +365,7 @@ html.io-unavailable main [style*="translate"] {
 .vm { margin: 8px auto 0; max-width: 420px; }
 .vm-card { border-radius: 26px; overflow: hidden; border: 1px solid rgba(212,175,55,.5); box-shadow: 0 18px 44px rgba(11,26,61,.16), 0 0 0 6px rgba(255,255,255,.7), 0 0 0 7px rgba(212,175,55,.25); }
 .vm-map { height: 380px; width: 100%; background: #EEF1F7; }
-.vm-map .leaflet-tile-pane { filter: sepia(.25) hue-rotate(185deg) saturate(.55) brightness(1.03) contrast(.95); }
+.vm-map .leaflet-tile-pane { filter: grayscale(1) sepia(.35) hue-rotate(185deg) saturate(1.6) brightness(1.02) contrast(1.05); }
 .vm-pin-wrap { position: relative; }
 .vm-pin { position: absolute; left: 0; bottom: 14px; transform: translateX(-50%); display: flex; align-items: center; gap: 7px; white-space: nowrap;
   padding: 9px 14px; border-radius: 999px; background: #0B1A3D; color: #F1DC8C; font-family: var(--font-body); font-size: 13px; letter-spacing: .16em;
