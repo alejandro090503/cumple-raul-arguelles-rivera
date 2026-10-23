@@ -1001,8 +1001,8 @@ function Vestimenta() {
         <motion.p variants={riseSmall} className="lj-type-sub">Elegante · Noche</motion.p>
         <motion.p variants={rise} className="lj-msg">¡Ven elegante a celebrar con nosotros esta noche tan especial!</motion.p>
         <motion.div variants={rise} className="lj-avoid">
-          <span className="lj-avoid-txt"><b>Colores de la noche</b>Te invitamos a vestir de negro o azul marino.</span>
-          <span className="lj-sws"><span className="lj-sw" style={{ background: "#000" }} role="img" aria-label="Negro" /><span className="lj-sw" style={{ background: "#14275E" }} role="img" aria-label="Azul marino" /></span>
+          <span className="lj-avoid-txt"><b>Color de la noche</b>La vestimenta es únicamente en color negro.</span>
+          <span className="lj-sws"><span className="lj-sw" style={{ background: "#000" }} role="img" aria-label="Negro" /></span>
         </motion.div>
       </InView>
     </Section>
@@ -1029,7 +1029,7 @@ function AvisoSorpresa() {
         <div className="nm-list">
           <motion.div variants={rise} className="nm-item">
             <span className="nm-ico" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 6l8 6 8-6 6 4v30H10V10zM24 12v28M20 8l4 8 4-8M21 14l3 2 3-2" /></svg></span>
-            <div><p className="nm-it">Código de vestimenta</p><p className="nm-ix">Elegancia formal. La temática de la noche será azul marino, dorado y negro; te invitamos a vestir de negro y azul para mantener la armonía de nuestra celebración.</p></div>
+            <div><p className="nm-it">Código de vestimenta</p><p className="nm-ix">Elegancia formal. La temática de la noche será azul marino, dorado y negro; te invitamos a vestir únicamente de negro para mantener la armonía de nuestra celebración.</p></div>
           </motion.div>
           <motion.div variants={rise} className="nm-item">
             <span className="nm-ico" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="17" cy="15" r="6" /><circle cx="32" cy="15" r="6" /><path d="M6 40c0-7 5-12 11-12s11 5 11 12M23 40c0-7 4-12 9-12s10 5 10 12" /></svg></span>
