@@ -10,6 +10,7 @@ import {
 } from "framer-motion";
 import { RSVPClient } from "./RSVPClient";
 import { FloatingMenu } from "./FloatingMenu";
+import { VenueMap } from "./VenueMap";
 
 const C = {
   black: "#14275E",      // zafiro profundo (texto principal)
@@ -858,34 +859,8 @@ function Ceremonia() {
           7533 W Thomas Rd · Phoenix, AZ 85033
         </motion.p>
 
-        <motion.div variants={rise} style={{ textAlign: "center" }}>
-          <motion.a
-            href="https://maps.app.goo.gl/HxuFVTX2KBa8Hs5f9"
-            target="_blank"
-            rel="noopener noreferrer"
-            whileHover={{ y: -2 }}
-            whileTap={{ scale: 0.97 }}
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: 10,
-              fontFamily: "var(--font-body)",
-              fontWeight: 600,
-              fontSize: 14,
-              letterSpacing: "0.15em",
-              textTransform: "uppercase",
-              color: C.black,
-              textDecoration: "none",
-              paddingBottom: 6,
-              borderBottom: `1px solid ${C.gold}`,
-            }}
-          >
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke={C.gold} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
-              <circle cx="12" cy="10" r="3" />
-            </svg>
-            Ver ubicación
-          </motion.a>
+        <motion.div variants={rise}>
+          <VenueMap />
         </motion.div>
 
         <motion.div

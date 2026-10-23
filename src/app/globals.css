@@ -360,3 +360,24 @@ html.io-unavailable main [style*="translate"] {
 #regalos > * { position: relative; z-index: 1; }
 #regalos > .env-rain { position: absolute; }
 @media (prefers-reduced-motion: reduce) { .it-ring, .it-glint, .it-link::after, .env-rain span, .env-rain span svg { animation: none; } .env-rain { display: none; } }
+
+/* ── Mapa premium ── */
+.vm { margin: 8px auto 0; max-width: 420px; }
+.vm-card { border-radius: 26px; overflow: hidden; border: 1px solid rgba(212,175,55,.5); box-shadow: 0 18px 44px rgba(11,26,61,.16), 0 0 0 6px rgba(255,255,255,.7), 0 0 0 7px rgba(212,175,55,.25); }
+.vm-map { height: 380px; width: 100%; background: #EEF1F7; }
+.vm-map .leaflet-tile-pane { filter: sepia(.25) hue-rotate(185deg) saturate(.55) brightness(1.03) contrast(.95); }
+.vm-pin-wrap { position: relative; }
+.vm-pin { position: absolute; left: 0; bottom: 14px; transform: translateX(-50%); display: flex; align-items: center; gap: 7px; white-space: nowrap;
+  padding: 9px 14px; border-radius: 999px; background: #0B1A3D; color: #F1DC8C; font-family: var(--font-body); font-size: 13px; letter-spacing: .16em;
+  box-shadow: 0 8px 20px rgba(11,26,61,.35), 0 0 0 1px rgba(212,175,55,.6); animation: vmFloat 3.6s ease-in-out infinite; }
+.vm-pin::after { content: ""; position: absolute; left: 50%; bottom: -6px; width: 12px; height: 12px; margin-left: -6px; background: #0B1A3D; transform: rotate(45deg); box-shadow: 1px 1px 0 rgba(212,175,55,.6); }
+.vm-dot { position: absolute; left: -7px; top: -7px; width: 14px; height: 14px; border-radius: 50%; background: #D4AF37; box-shadow: 0 0 0 4px rgba(212,175,55,.3); animation: vmBeat 1.8s ease-out infinite; }
+@keyframes vmFloat { 0%,100% { transform: translate(-50%, 0); } 50% { transform: translate(-50%, -5px); } }
+@keyframes vmBeat { 0% { box-shadow: 0 0 0 0 rgba(212,175,55,.55); } 100% { box-shadow: 0 0 0 16px rgba(212,175,55,0); } }
+.vm-map .leaflet-control-zoom a { width: 40px; height: 40px; line-height: 40px; color: #14275E; border-color: rgba(212,175,55,.4); }
+.vm-map .leaflet-bar { border: 1px solid rgba(212,175,55,.5); border-radius: 12px; overflow: hidden; box-shadow: 0 6px 16px rgba(11,26,61,.15); }
+.vm-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 22px; }
+.vm-links a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 18px; border-radius: 999px; border: 1px solid rgba(168,132,31,.55);
+  background: rgba(255,255,255,.85); color: #14275E; font-family: var(--font-body); font-size: 14px; letter-spacing: .14em; text-transform: uppercase; text-decoration: none;
+  box-shadow: 0 6px 16px rgba(11,26,61,.08); }
+@media (prefers-reduced-motion: reduce) { .vm-pin, .vm-dot { animation: none; } }

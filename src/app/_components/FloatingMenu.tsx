@@ -81,11 +81,6 @@ export function FloatingMenu() {
     setTimeout(() => document.getElementById(id)?.scrollIntoView({ behavior: "smooth" }), open ? 250 : 0);
   };
 
-  const share = () => {
-    const url = location.origin + location.pathname;
-    if (navigator.share) navigator.share({ title: "50 Años · Raúl Argüelles Rivera", url }).catch(() => {});
-    else navigator.clipboard?.writeText(url);
-  };
 
   const btn: React.CSSProperties = {
     minWidth: 44, minHeight: 44, borderRadius: 999, border: `1px solid ${GOLD}88`, background: "transparent",
@@ -124,19 +119,16 @@ export function FloatingMenu() {
                 {s.label}
               </a>
             ))}
-            <span style={{ width: 1, height: 22, background: "rgba(212,175,55,0.5)", margin: "0 6px" }} />
           </div>
         )}
-        <button onClick={share} aria-label="Compartir" style={{ ...btn, color: "#14275E" }}>
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3" /><circle cx="6" cy="12" r="3" /><circle cx="18" cy="19" r="3" /><line x1="8.6" y1="13.5" x2="15.4" y2="17.5" /><line x1="15.4" y1="6.5" x2="8.6" y2="10.5" /></svg>
-        </button>
         {!desktop && (
           <button
             onClick={() => setOpen(true)}
             aria-expanded={open}
-            style={{ ...btn, border: "none", background: FOIL, color: NAVY, padding: "0 18px", fontFamily: "var(--font-body)", fontWeight: 700, fontSize: 14, letterSpacing: "0.06em" }}
+            aria-label="Abrir menú"
+            style={{ ...btn, border: "none", background: FOIL, color: NAVY, width: 48, height: 48, padding: 0 }}
           >
-            ☰ Menú
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" /></svg>
           </button>
         )}
       </nav>

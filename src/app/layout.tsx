@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Great_Vibes, Inter, Dancing_Script } from "next/font/google";
+import { Cormorant_Garamond, Great_Vibes, Marcellus, Dancing_Script } from "next/font/google";
 import "./globals.css";
 
 const cormorant = Cormorant_Garamond({
@@ -24,9 +24,9 @@ const dancingScript = Dancing_Script({
   display: "swap",
 });
 
-const inter = Inter({
+const inter = Marcellus({
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
+  weight: "400",
   variable: "--font-body",
   display: "swap",
 });
