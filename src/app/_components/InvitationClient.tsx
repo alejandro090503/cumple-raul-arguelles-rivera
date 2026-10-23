@@ -562,32 +562,6 @@ function Hero() {
       <span className="rib rib-a-r" aria-hidden="true" />
 
       <motion.div
-          key={i}
-          style={{
-            position: "absolute",
-            width: 3,
-            height: 3,
-            borderRadius: "50%",
-            backgroundColor: C.gold,
-            opacity: 0.3,
-            left: `${15 + i * 14}%`,
-            top: `${20 + (i % 3) * 25}%`,
-          }}
-          animate={{
-            opacity: [0.1, 0.5, 0.1],
-            scale: [0.8, 1.5, 0.8],
-            y: [0, -20, 0],
-          }}
-          transition={{
-            duration: 3 + i * 0.5,
-            ease: "easeInOut",
-            repeat: Infinity,
-            delay: i * 0.7,
-          }}
-        />
-      ))}
-
-      <motion.div
         style={{ y: yContent, opacity, display: "flex", flexDirection: "column", alignItems: "center", width: "100%", gap: "clamp(18px, 3.5vw, 30px)" }}
         variants={group(0.18, 0.1)}
         initial="hidden"
