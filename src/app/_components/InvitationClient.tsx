@@ -1279,21 +1279,6 @@ function Footer() {
       viewport={{ once: true, amount: 0.4 }}
     >
       <span className="drape d-tr d-small" aria-hidden="true" />
-      <motion.p
-        aria-hidden="true"
-        variants={{ hidden: { opacity: 0, scale: 0.6 }, show: { opacity: 1, scale: 1, transition: { duration: 0.9, ease: EASE } } }}
-        style={{
-          fontFamily: "var(--font-heading)",
-          fontWeight: 700,
-          letterSpacing: "0.12em",
-          color: C.goldLight,
-          fontSize: "clamp(2.6rem, 9vw, 4.4rem)",
-          lineHeight: 1.1,
-          textAlign: "center",
-        }}
-      >
-        RA
-      </motion.p>
 
       <motion.div
         variants={{ hidden: { scaleX: 0 }, show: { scaleX: 1, transition: { duration: 0.6, ease: EASE } } }}
