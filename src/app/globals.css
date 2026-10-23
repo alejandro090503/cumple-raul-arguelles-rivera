@@ -507,17 +507,17 @@ html.io-unavailable main [style*="translate"] {
 
 
 /* ══ Mantas y cintas ENCIMA del contenido, en esquinas y bordes ══ */
-.fx { --dw: min(64vw, 400px); --rw: 62px; }
+.fx { --dw: min(60vw, 380px); --rw: 62px; }
 .drape { position: absolute; z-index: 6; pointer-events: none; width: var(--dw); height: var(--dw); background: center / contain no-repeat;
   filter: drop-shadow(0 16px 22px rgba(0,0,0,.42)); }
 .d-small { --dw: min(46vw, 280px); }
 .d-light { filter: drop-shadow(0 14px 20px rgba(11,26,61,.28)); }
-.d-tl  { background-image: url(/tela-tl.webp);  left: calc(var(--dw) * -.30); top: calc(var(--fade, 150px) - var(--dw) * .34); transform-origin: 8% 8%;  animation: drapeA 7s ease-in-out infinite; }
-.d-tr  { background-image: url(/tela-tr.webp);  right: calc(var(--dw) * -.30); top: calc(var(--fade, 150px) - var(--dw) * .34); transform-origin: 92% 8%; animation: drapeB 7.6s ease-in-out infinite; }
-.d-tr2 { background-image: url(/tela-tr2.webp); right: calc(var(--dw) * -.32); top: calc(var(--fade, 150px) - var(--dw) * .38); transform-origin: 92% 8%; animation: drapeA 8.2s ease-in-out infinite; }
-.d-br  { background-image: url(/tela-br.webp);  right: calc(var(--dw) * -.30); bottom: calc(var(--fade, 150px) - var(--dw) * .34); transform-origin: 92% 92%; animation: drapeB 8s ease-in-out infinite; }
-.d-bl  { background-image: url(/tela-bl.webp);  left: calc(var(--dw) * -.30); bottom: calc(var(--fade, 150px) - var(--dw) * .34); transform-origin: 8% 92%; animation: drapeA 8.6s ease-in-out infinite; }
-.d-bl2 { background-image: url(/tela-bl2.webp); left: calc(var(--dw) * -.32); bottom: calc(var(--fade, 150px) - var(--dw) * .38); transform-origin: 8% 92%; animation: drapeB 7.2s ease-in-out infinite; }
+.d-tl  { background-image: url(/tela-tl.webp);  left: calc(var(--dw) * -.42); top: calc(var(--fade, 150px) - var(--dw) * .7); transform-origin: 8% 8%;  animation: drapeA 7s ease-in-out infinite; }
+.d-tr  { background-image: url(/tela-tr.webp);  right: calc(var(--dw) * -.42); top: calc(var(--fade, 150px) - var(--dw) * .7); transform-origin: 92% 8%; animation: drapeB 7.6s ease-in-out infinite; }
+.d-tr2 { background-image: url(/tela-tr2.webp); right: calc(var(--dw) * -.42); top: calc(var(--fade, 150px) - var(--dw) * .7); transform-origin: 92% 8%; animation: drapeA 8.2s ease-in-out infinite; }
+.d-br  { background-image: url(/tela-br.webp);  right: calc(var(--dw) * -.42); bottom: calc(var(--fade, 150px) - var(--dw) * .7); transform-origin: 92% 92%; animation: drapeB 8s ease-in-out infinite; }
+.d-bl  { background-image: url(/tela-bl.webp);  left: calc(var(--dw) * -.42); bottom: calc(var(--fade, 150px) - var(--dw) * .7); transform-origin: 8% 92%; animation: drapeA 8.6s ease-in-out infinite; }
+.d-bl2 { background-image: url(/tela-bl2.webp); left: calc(var(--dw) * -.42); bottom: calc(var(--fade, 150px) - var(--dw) * .7); transform-origin: 8% 92%; animation: drapeB 7.2s ease-in-out infinite; }
 @keyframes drapeA {
   0%,100% { transform: rotate(0deg) skew(0deg, 0deg) scale(1, 1); }
   30% { transform: rotate(-3deg) skew(2deg, -1.4deg) scale(1.03, .975); }

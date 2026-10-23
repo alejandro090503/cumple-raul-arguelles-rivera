@@ -706,7 +706,6 @@ function Mensaje() {
 function Ceremonia() {
   return (
     <Section id="ceremonia" className="fx mesh mesh-a halo" bg="transparent">
-      <span className="drape d-tr2 d-light d-small" aria-hidden="true" />
       <InView style={{ maxWidth: 460, margin: "0 auto" }} amount={0.25}>
         <SectionTitle eyebrow="Recepción" title="LA CELEBRACIÓN" />
 
@@ -892,7 +891,7 @@ function Itinerario() {
   return (
     <Section id="itinerario" className="fx ink-soft halo" bg="transparent">
       <span className="rib rib-full-l" aria-hidden="true" />
-      <span className="drape d-br d-light" aria-hidden="true" />
+      <span className="drape d-br d-light d-small" aria-hidden="true" />
       <InView amount={0.3}>
         <SectionTitle title="ITINERARIO" />
       </InView>
@@ -971,7 +970,7 @@ function Itinerario() {
    ═══════════════════════════════════════════════════════ */
 function Vestimenta() {
   return (
-    <Section id="vestimenta" bg="transparent" className="fx ink-dark halo-dark lj-dc" style={{ paddingTop: 210, paddingBottom: 230 }}>
+    <Section id="vestimenta" bg="transparent" className="fx ink-dark halo-dark lj-dc" style={{ paddingTop: 280, paddingBottom: 300 }}>
       <span className="drape d-tl" aria-hidden="true" />
       <span className="drape d-br" aria-hidden="true" />
       <InView style={{ maxWidth: 360, margin: "0 auto" }} amount={0.25}>
@@ -1015,7 +1014,7 @@ function Vestimenta() {
    ═══════════════════════════════════════════════════════ */
 function AvisoSorpresa() {
   return (
-    <Section bg="transparent" className="fx ink-dark halo-dark" style={{ position: "relative", overflow: "hidden", paddingTop: 230, paddingBottom: 260 }}>
+    <Section bg="transparent" className="fx ink-dark halo-dark" style={{ position: "relative", overflow: "hidden", paddingTop: 290, paddingBottom: 310 }}>
       <span className="drape d-tr2" aria-hidden="true" />
       <span className="drape d-bl" aria-hidden="true" />
       {/* Partículas doradas flotantes */}
