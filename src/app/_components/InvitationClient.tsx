@@ -883,9 +883,9 @@ function Itinerario() {
         </div>
       ),
     },
-    { hora: "Por confirmar", evento: "CENA", icon: <IconCena /> },
-    { hora: "Por confirmar", evento: "BRINDIS", icon: <IconCoctel /> },
-    { hora: "Por confirmar", evento: "BAILE", icon: <IconBaile /> },
+    { hora: "7:00 – 9:00 p.m.", evento: "CENA", icon: <IconCena /> },
+    { hora: "9:00 p.m.", evento: "BAILE", icon: <IconBaile /> },
+    { hora: "2:00 a.m.", evento: "FIN DE LA CELEBRACIÓN", icon: <IconCoctel /> },
   ];
 
   return (
@@ -1001,8 +1001,8 @@ function Vestimenta() {
         <motion.p variants={riseSmall} className="lj-type-sub">Elegante · Noche</motion.p>
         <motion.p variants={rise} className="lj-msg">¡Ven elegante a celebrar con nosotros esta noche tan especial!</motion.p>
         <motion.div variants={rise} className="lj-avoid">
-          <span className="lj-avoid-txt"><b>Color sugerido</b>El negro es el color de la noche.</span>
-          <span className="lj-sw" style={{ background: "#000" }} role="img" aria-label="Negro" />
+          <span className="lj-avoid-txt"><b>Colores de la noche</b>Te invitamos a vestir de negro o azul marino.</span>
+          <span className="lj-sws"><span className="lj-sw" style={{ background: "#000" }} role="img" aria-label="Negro" /><span className="lj-sw" style={{ background: "#14275E" }} role="img" aria-label="Azul marino" /></span>
         </motion.div>
       </InView>
     </Section>
@@ -1014,151 +1014,43 @@ function Vestimenta() {
    ═══════════════════════════════════════════════════════ */
 function AvisoSorpresa() {
   return (
-    <Section bg="transparent" className="fx ink-dark halo-dark" style={{ position: "relative", overflow: "hidden", paddingTop: 290, paddingBottom: 310 }}>
+    <Section id="detalles" bg="transparent" className="fx ink-dark halo-dark nm" style={{ position: "relative", overflow: "hidden", paddingTop: 290, paddingBottom: 310 }}>
       <span className="drape d-tr2" aria-hidden="true" />
       <span className="drape d-bl" aria-hidden="true" />
-      {/* Partículas doradas flotantes */}
-      {[...Array(12)].map((_, i) => (
-        <motion.div
-          key={i}
-          style={{
-            position: "absolute",
-            width: i % 3 === 0 ? 4 : 2,
-            height: i % 3 === 0 ? 4 : 2,
-            borderRadius: "50%",
-            backgroundColor: C.goldLight,
-            left: `${8 + (i * 7.5) % 85}%`,
-            top: `${10 + (i * 13) % 80}%`,
-          }}
-          animate={{
-            opacity: [0, 0.6, 0],
-            y: [0, -30, 0],
-            scale: [0.5, 1.2, 0.5],
-          }}
-          transition={{
-            duration: 3 + (i % 4) * 0.8,
-            ease: "easeInOut",
-            repeat: Infinity,
-            delay: i * 0.4,
-          }}
-        />
-      ))}
-
-      <InView
-        style={{
-          maxWidth: 420,
-          margin: "0 auto",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          gap: 24,
-          position: "relative",
-          zIndex: 1,
-        }}
-        amount={0.4}
-      >
-        {/* Ícono "shh" grande con pulse */}
-        <motion.div
-          variants={popStar}
-          style={{ position: "relative" }}
-        >
-          {/* Rings pulsantes */}
-          <motion.div
-            style={{
-              position: "absolute",
-              inset: -20,
-              borderRadius: "50%",
-              border: `1px solid ${C.gold}`,
-              opacity: 0.2,
-            }}
-            animate={{ scale: [1, 1.4, 1], opacity: [0.2, 0, 0.2] }}
-            transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
-          />
-          <motion.div
-            style={{
-              position: "absolute",
-              inset: -35,
-              borderRadius: "50%",
-              border: `1px solid ${C.gold}`,
-              opacity: 0.1,
-            }}
-            animate={{ scale: [1, 1.3, 1], opacity: [0.1, 0, 0.1] }}
-            transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-          />
-          <motion.div
-            animate={{ scale: [1, 1.08, 1] }}
-            transition={{ duration: 2.6, ease: "easeInOut", repeat: Infinity }}
-            style={{
-              width: 80,
-              height: 80,
-              borderRadius: "50%",
-              border: `1.5px solid ${C.gold}`,
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              background: "rgba(212,175,55,0.08)",
-            }}
-          >
-            <svg width="40" height="40" viewBox="0 0 48 48" fill="none" stroke={C.goldLight} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M10 6h12l-1 10a5 5 0 01-10 0zM16 21v15M11 36h10" /><path d="M26 6h12l-1 10a5 5 0 01-10 0zM32 21v15M27 36h10" /><path d="M21 4l3-2M27 4l-3-2" /></svg>
+      <InView style={{ maxWidth: 380, margin: "0 auto", position: "relative", zIndex: 1 }} amount={0.12} variants={group(0.1)}>
+        <motion.p variants={riseSmall} className="nm-k">Una noche especial,</motion.p>
+        <MaskLine as="h2" style={{ margin: "2px 0 10px" }} duration={1}><span className="nm-script">Personas Especiales</span></MaskLine>
+        <motion.div variants={fade} className="div-oro"><img src="/divisor-oro.png" alt="" aria-hidden="true" /></motion.div>
+        <motion.p variants={rise} className="nm-name">Raúl Argüelles</motion.p>
+        <motion.p variants={riseSmall} className="nm-sub">Celebración de mis 50 años</motion.p>
+        <motion.p variants={rise} className="nm-p">Cumplir 50 años es celebrar la vida, los momentos compartidos y, sobre todo, a las personas que forman parte de nuestra historia.</motion.p>
+        <motion.p variants={rise} className="nm-p">Si recibes esta invitación, es porque he elegido compartir contigo una noche importante y especial para mí. Tu presencia es bienvenida y será apreciada de corazón.</motion.p>
+        <motion.p variants={rise} className="nm-p nm-lead">Para que esta celebración sea tan especial como la he imaginado, te agradeceré tomar en cuenta los siguientes detalles:</motion.p>
+        <div className="nm-list">
+          <motion.div variants={rise} className="nm-item">
+            <span className="nm-ico" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 6l8 6 8-6 6 4v30H10V10zM24 12v28M20 8l4 8 4-8M21 14l3 2 3-2" /></svg></span>
+            <div><p className="nm-it">Código de vestimenta</p><p className="nm-ix">Elegancia formal. La temática de la noche será azul marino, dorado y negro; te invitamos a vestir de negro y azul para mantener la armonía de nuestra celebración.</p></div>
           </motion.div>
-        </motion.div>
-
-        <motion.h2
-          variants={rise}
-          className="text-shimmer-light"
-          style={{
-            fontFamily: "var(--font-heading)",
-            fontWeight: 700,
-            fontSize: "clamp(1.8rem, 8vw, 2.8rem)",
-            letterSpacing: "0.1em",
-            color: C.white,
-            textAlign: "center",
-            lineHeight: 1.2,
-          }}
-        >
-          UNA NOCHE ENTRE ADULTOS
-        </motion.h2>
-
-        <motion.div
-          variants={{ hidden: { scaleX: 0 }, show: { scaleX: 1, transition: { duration: 0.6, ease: EASE } } }}
-          style={{ height: 1, width: 60, backgroundColor: C.gold, opacity: 0.5 }}
-        />
-
-        <motion.p
-          variants={rise}
-          style={{
-            fontFamily: "var(--font-heading)",
-            fontStyle: "italic",
-            fontWeight: 500,
-            fontSize: "clamp(16px, 4.2vw, 19px)",
-            color: "rgba(255,255,255,0.92)",
-            lineHeight: 1.8,
-            textAlign: "center",
-            maxWidth: 340,
-          }}
-        >
-          Preparamos esta velada pensando en una noche
-          <br />
-          tranquila entre adultos, para disfrutar y platicar sin prisa.
-          <br />
-          Gracias por ayudarnos a que así sea.
-        </motion.p>
-
-        <motion.p
-          variants={riseSmall}
-          style={{
-            fontFamily: "var(--font-body)",
-            fontWeight: 600,
-            fontSize: 13,
-            letterSpacing: "0.3em",
-            textTransform: "uppercase",
-            color: C.gold,
-            textAlign: "center",
-            marginTop: 8,
-          }}
-        >
-          Con cariño, la familia
-        </motion.p>
+          <motion.div variants={rise} className="nm-item">
+            <span className="nm-ico" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="17" cy="15" r="6" /><circle cx="32" cy="15" r="6" /><path d="M6 40c0-7 5-12 11-12s11 5 11 12M23 40c0-7 4-12 9-12s10 5 10 12" /></svg></span>
+            <div><p className="nm-it">Celebración exclusiva para adultos</p><p className="nm-ix">Esta ocasión ha sido organizada únicamente para adultos y no habrá excepciones. Agradezco de antemano tu comprensión.</p></div>
+          </motion.div>
+          <motion.div variants={rise} className="nm-item">
+            <span className="nm-ico" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><ellipse cx="24" cy="18" rx="13" ry="4" /><path d="M24 22v16M18 38h12M7 16v22M7 28h7v10M41 16v22M41 28h-7v10" /></svg></span>
+            <div><p className="nm-it">Mesas y lugares asignados</p><p className="nm-ix">La distribución de las mesas se ha organizado previamente para el buen desarrollo del evento. Agradecemos respetar los lugares asignados, ya que cada detalle ha sido planeado con anticipación.</p></div>
+          </motion.div>
+          <motion.div variants={rise} className="nm-item">
+            <span className="nm-ico" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="7" y="13" width="34" height="24" rx="2" /><path d="M7 15l17 12 17-12M17 10h14v8" /></svg></span>
+            <div><p className="nm-it">Invitación y confirmación</p><p className="nm-ix">Cada invitación ha sido considerada de manera personal. Te pedimos confirmar tu asistencia y respetar el número de personas indicado en ella.</p></div>
+          </motion.div>
+        </div>
+        <motion.p variants={rise} className="nm-p">Mi deseo es compartir una noche de alegría, buena compañía, respeto y recuerdos inolvidables. No se trata de una fiesta perfecta, sino de una noche especial entre personas que han sido invitadas con cariño.</motion.p>
+        <motion.p variants={rise} className="nm-p">Gracias por acompañarme en este capítulo tan significativo de mi vida. Espero que disfrutemos juntos una velada llena de elegancia, alegría y buenos momentos.</motion.p>
+        <motion.p variants={riseSmall} className="nm-with">Con aprecio,</motion.p>
+        <motion.p variants={rise} className="nm-sign">Raúl Argüelles</motion.p>
+        <motion.p variants={riseSmall} className="nm-sub">50 años de vida, historias y nuevos comienzos.</motion.p>
+        <motion.div variants={fade} className="div-oro"><img src="/divisor-oro.png" alt="" aria-hidden="true" /></motion.div>
+        <motion.p variants={rise} className="nm-quote">“La invitación es un gesto de cariño; el respeto y la buena disposición son el mejor regalo para compartir esta noche.”</motion.p>
       </InView>
     </Section>
   );
@@ -1260,6 +1152,15 @@ function MesaRegalos() {
             </div>
 
           </button>
+        </motion.div>
+        <motion.p variants={rise} className="gr-or">También puedes elegir un detalle en</motion.p>
+        <motion.div variants={rise} className="gr-stores">
+          <a className="gr-store" href="https://www.dillards.com/registry" target="_blank" rel="noopener noreferrer">
+            <span className="gr-name">Dillard&apos;s</span><span className="gr-cta">Ver mesa de regalos</span>
+          </a>
+          <a className="gr-store" href="https://www.macys.com/registry/wedding/registrysearch" target="_blank" rel="noopener noreferrer">
+            <span className="gr-name">Macy&apos;s</span><span className="gr-cta">Ver mesa de regalos</span>
+          </a>
         </motion.div>
       </InView>
     </Section>
@@ -1372,9 +1273,9 @@ export function InvitationClient({ pases, nombre }: { pases: number; nombre: str
         <Divider />
         <Vestimenta />
         <MesaRegalos />
-        <AvisoSorpresa />
         <Divider />
         <RSVPClient pases={pases} nombre={nombre} />
+        <AvisoSorpresa />
         <Footer />
         <VinylButton />
         <FloatingMenu />

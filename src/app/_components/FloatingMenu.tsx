@@ -9,6 +9,7 @@ const SECTIONS = [
   { id: "vestimenta", label: "Vestimenta" },
   { id: "regalos", label: "Regalos" },
   { id: "rsvp", label: "Confirmar" },
+  { id: "detalles", label: "Detalles" },
 ];
 
 const NAVY = "#0B1A3D";

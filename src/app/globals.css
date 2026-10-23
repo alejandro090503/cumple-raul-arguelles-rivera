@@ -560,3 +560,32 @@ html.io-unavailable main [style*="translate"] {
 /* Cinta grande en el borde derecho del RSVP */
 .rib-edge-r { --rw: min(30vw, 130px); background-image: url(/cinta-full.webp); height: calc(var(--rw) * 4.76); right: calc(var(--rw) * -.34); top: calc(var(--fade, 150px) * .5); scale: -1 1; animation-duration: 8s; }
 .rib-edge-r2 { top: calc(var(--fade, 150px) * .5 + var(--rw) * 4.5); scale: 1 1; right: calc(var(--rw) * -.46); animation-delay: -3s; }
+
+/* Vestimenta: dos colores */
+.lj-sws { display: flex; gap: 12px; justify-content: center; }
+/* Tiendas de regalos */
+.gr-or { font-family: var(--font-heading); font-style: italic; font-weight: 600; font-size: 19px; color: #3E4A6B; margin: 34px 0 16px; }
+.gr-stores { display: flex; flex-direction: column; gap: 12px; max-width: 320px; margin: 0 auto; }
+.gr-store { display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 18px 16px; border-radius: 16px; text-decoration: none;
+  background: linear-gradient(160deg, #FFFFFF, #F3F6FC); border: 1px solid rgba(212,175,55,.55); box-shadow: 0 12px 28px rgba(11,26,61,.12); position: relative; overflow: hidden; }
+.gr-store::after { content: ""; position: absolute; inset: 0; background: linear-gradient(110deg, transparent 35%, rgba(255,255,255,.85) 50%, transparent 65%); transform: translateX(-120%); animation: itGlint 5s ease-in-out infinite; }
+.gr-name { font-family: var(--font-heading); font-weight: 700; font-size: 26px; letter-spacing: .06em; color: #14275E; }
+.gr-cta { font-family: var(--font-body); font-size: 13px; letter-spacing: .2em; text-transform: uppercase; color: #A8841F; }
+/* Mensaje final */
+.nm { text-align: center; }
+.nm-k { font-family: var(--font-heading); font-weight: 700; font-size: clamp(20px, 6vw, 28px); letter-spacing: .12em; text-transform: uppercase; color: #F1DC8C; }
+.nm-script { display: block; font-family: var(--font-script); font-size: clamp(44px, 12vw, 60px); line-height: 1.15; color: #E9C766; }
+.nm-name { font-family: var(--font-heading); font-weight: 700; font-size: clamp(22px, 6.4vw, 30px); letter-spacing: .16em; text-transform: uppercase; color: #F1DC8C; margin-top: 8px; }
+.nm-sub { font-family: var(--font-heading); font-weight: 700; font-size: 14px; letter-spacing: .2em; text-transform: uppercase; color: #E9C766; margin: 4px 0 18px; }
+.nm-p { font-family: var(--font-heading); font-weight: 600; font-size: 18px; line-height: 1.6; color: rgba(255,255,255,.95); margin-bottom: 14px; }
+.nm-lead { margin-top: 8px; }
+.nm-list { text-align: left; margin: 14px 0 24px; display: flex; flex-direction: column; gap: 18px; }
+.nm-item { display: flex; gap: 14px; align-items: flex-start; }
+.nm-ico { flex: 0 0 54px; height: 54px; border-radius: 50%; border: 1.5px solid #D4AF37; color: #E9C766; display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 0 14px rgba(212,175,55,.25); animation: itPulse 4s ease-in-out infinite; }
+.nm-ico svg { width: 30px; height: 30px; }
+.nm-it { font-family: var(--font-heading); font-weight: 700; font-size: 16px; letter-spacing: .08em; text-transform: uppercase; color: #F1DC8C; margin-bottom: 4px; }
+.nm-ix { font-family: var(--font-heading); font-weight: 600; font-size: 17px; line-height: 1.5; color: rgba(255,255,255,.92); border-left: 1px solid rgba(212,175,55,.5); padding-left: 12px; }
+.nm-with { font-family: var(--font-heading); font-style: italic; font-weight: 600; font-size: 22px; color: #E9C766; margin-top: 10px; }
+.nm-sign { font-family: var(--font-heading); font-style: italic; font-weight: 700; font-size: clamp(30px, 9vw, 40px); color: #E9C766; line-height: 1.2; }
+.nm-quote { font-family: var(--font-heading); font-style: italic; font-weight: 600; font-size: 18px; line-height: 1.6; color: #F1DC8C; margin-top: 10px; }
