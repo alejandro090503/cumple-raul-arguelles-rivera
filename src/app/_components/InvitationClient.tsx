@@ -799,8 +799,8 @@ function SectionTitle({ eyebrow, title }: { eyebrow?: string; title: string }) {
    ═══════════════════════════════════════════════════════ */
 function Mensaje() {
   return (
-    <Section className="fx ink-oval halo" bg="transparent" style={{ minHeight: 600, display: "flex", alignItems: "center", justifyContent: "center", paddingLeft: 56, paddingRight: 56 }}>
-      <InView style={{ maxWidth: 230, margin: "0 auto" }} amount={0.35}>
+    <Section className="fx ink-oval halo" bg="transparent" style={{ minHeight: 720, display: "flex", alignItems: "center", justifyContent: "center", paddingLeft: 28, paddingRight: 28 }}>
+      <InView style={{ maxWidth: 340, margin: "0 auto" }} amount={0.35}>
         <WordReveal
           text="Medio siglo de vida, de trabajo y de cariño. Con el corazón agradecido, tenemos el honor de invitarte a celebrar los 50 años de Raúl Argüelles Rivera"
           style={{
