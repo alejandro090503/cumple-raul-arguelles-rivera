@@ -595,3 +595,4 @@ html.io-unavailable main [style*="translate"] {
 .nm-ico svg { width: 24px; height: 24px; }
 .nm-p, .nm-ix { font-size: 17px; }
 .nm .nm-item p, .nm .nm-item div { text-align: left !important; }
+.rsvp-qr-track::-webkit-scrollbar { display: none; }
