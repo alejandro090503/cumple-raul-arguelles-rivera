@@ -1012,6 +1012,31 @@ function Vestimenta() {
 /* ═══════════════════════════════════════════════════════
    ES UNA SORPRESA — más llamativa y viva
    ═══════════════════════════════════════════════════════ */
+function Album() {
+  const [bloqueado, setBloqueado] = useState(true);
+  useEffect(() => {
+    // Se desbloquea solo el día del evento (la base además rechaza fotos antes).
+    setBloqueado(new Date() < new Date(2027, 0, 2, 0, 0, 0));
+  }, []);
+  return (
+    <Section id="album" className="fx mesh mesh-a halo" bg="transparent">
+      <InView style={{ maxWidth: 380, margin: "0 auto" }} amount={0.25}>
+        <SectionTitle eyebrow="Comparte tus recuerdos" title="ÁLBUM DE FOTOS" />
+        <motion.p variants={rise} className="al-p">Ayúdanos a guardar cada momento: sube aquí las fotos que tomes durante el evento.</motion.p>
+        <motion.div variants={scaleIn} className={`al-qr${bloqueado ? " bloqueado" : ""}`}>
+          <span className="al-frame">
+            <img src="/qr-album.png" alt="Código QR del álbum de fotos" width={220} height={220} />
+          </span>
+          <a className="al-btn" href="/album" aria-disabled={bloqueado}>Subir mis fotos</a>
+        </motion.div>
+        {bloqueado && (
+          <motion.p variants={rise} className="al-aviso">El álbum de fotos se habilita el día del evento. Regresa aquí y sube todas tus fotos de la noche ✨</motion.p>
+        )}
+      </InView>
+    </Section>
+  );
+}
+
 function AvisoSorpresa() {
   return (
     <Section id="detalles" bg="transparent" className="fx ink-dark halo-dark nm" style={{ position: "relative", overflow: "hidden", paddingTop: 290, paddingBottom: 310 }}>
@@ -1275,6 +1300,7 @@ export function InvitationClient({ pases, nombre }: { pases: number; nombre: str
         <MesaRegalos />
         <Divider />
         <RSVPClient pases={pases} nombre={nombre} />
+        <Album />
         <AvisoSorpresa />
         <Footer />
         <VinylButton />

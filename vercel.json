@@ -1,1 +1,10 @@
-{ "framework": "nextjs" }
+{
+  "framework": "nextjs",
+  "redirects": [
+    {
+      "source": "/album",
+      "destination": "https://panel-invitados.vercel.app/subir/cumple-raul-arguelles-rivera",
+      "permanent": false
+    }
+  ]
+}
