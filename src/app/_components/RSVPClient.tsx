@@ -436,6 +436,8 @@ export function RSVPClient({ pases, nombre }: { pases: number; nombre: string })
       <span className="drape d-bl2 d-light d-small" aria-hidden="true" />
       <motion.div
         className="max-w-md mx-auto flex flex-col items-center"
+        /* El reset global "* { margin: 0 }" (sin capa) anula mx-auto: se centra aquí */
+        style={{ marginLeft: "auto", marginRight: "auto", width: "100%" }}
         variants={rGroup}
         initial="hidden"
         whileInView="show"
